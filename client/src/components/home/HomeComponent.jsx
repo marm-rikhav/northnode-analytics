@@ -6,7 +6,6 @@ import {
   Typography,
   Grid,
   Card,
-  CardContent,
   CardActionArea,
   Button,
   Chip,
