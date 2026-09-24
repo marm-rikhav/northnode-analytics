@@ -5,6 +5,7 @@ import AboutUsPage from './pages/aboutus/AboutUsPage';
 import ServicesPage from './pages/services/ServicesPage';
 import IndustryPage from './pages/industry/IndustryPage';
 import ContactUsPage from './pages/contactus/ContactUsPage';
+import FooterPage from './pages/footer/FooterPage';
 import { CssBaseline, ThemeProvider, createTheme, Box } from '@mui/material';
 
 const theme = createTheme({
@@ -50,11 +51,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ minHeight: '100vh', backgroundColor: '#F2F5F9' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#F2F5F9' }}>
         <HeaderPage activeTab={activePage} onSelectTab={setActivePage} />
-        <main>
+        <Box component="main" sx={{ flexGrow: 1 }}>
           {renderPage()}
-        </main>
+        </Box>
+        <FooterPage onNavigate={setActivePage} />
       </Box>
     </ThemeProvider>
   );
