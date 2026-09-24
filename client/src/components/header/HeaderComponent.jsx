@@ -42,13 +42,14 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [internalActiveTab, setInternalActiveTab] = useState('Home');
   
-  const activeTab = externalActiveTab !== undefined ? externalActiveTab : internalActiveTab;
+  const activeTab = externalActiveTab ?? internalActiveTab;
   
   const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+    setMobileOpen((prevState) => (prevState === false));
   };
 
   const handleNavClick = (label) => {
@@ -249,7 +250,7 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
             </Box>
 
             {/* Desktop Navigation Links */}
-            {!isMobile && (
+            {isDesktop && (
               <Box sx={{ display: 'flex', alignItems: 'center', gap: { md: 1, lg: 2 } }}>
                 {navItems.map((item) => {
                   const isActive = activeTab === item.label;
