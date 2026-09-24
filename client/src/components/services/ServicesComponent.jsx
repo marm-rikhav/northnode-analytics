@@ -29,12 +29,9 @@ import {
   FactCheck as QAIcon,
   Lightbulb as ConsultingIcon,
   VerifiedUser as ShieldIcon,
-  RocketLaunch as LaunchIcon,
   Handshake as HandshakeIcon,
   ArrowForward as ArrowIcon,
-  CheckCircle as CheckIcon,
-  Memory as TechIcon,
-  Timeline as ProcessIcon
+  Memory as TechIcon
 } from '@mui/icons-material';
 
 const COLORS = {
