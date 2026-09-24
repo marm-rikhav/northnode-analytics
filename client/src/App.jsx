@@ -33,17 +33,17 @@ function App() {
   const renderPage = () => {
     switch (activePage) {
       case 'Home':
-        return <HomePage />;
+        return <HomePage onNavigate={setActivePage} />;
       case 'About Us':
-        return <AboutUsPage />;
+        return <AboutUsPage onNavigate={setActivePage} />;
       case 'Services':
-        return <ServicesPage />;
+        return <ServicesPage onNavigate={setActivePage} />;
       case 'Industry':
-        return <IndustryPage />;
+        return <IndustryPage onNavigate={setActivePage} />;
       case 'Contact Us':
-        return <ContactUsPage />;
+        return <ContactUsPage onNavigate={setActivePage} />;
       default:
-        return <HomePage />;
+        return <HomePage onNavigate={setActivePage} />;
     }
   };
 
