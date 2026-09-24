@@ -289,17 +289,20 @@ const HomeComponent = ({ onNavigate }) => {
           </Typography>
         </Box>
 
-        <Grid container spacing={2.5}>
+        <Grid container spacing={2.5} alignItems="stretch">
           {servicesList.map((service) => (
             <Grid item xs={12} sm={6} md={4} key={service.name}>
               <Card
                 elevation={1}
                 sx={{
-                  height: '100%',
+                  height: 80,
+                  width: '100%',
                   borderRadius: 2.5,
                   transition: 'all 0.25s ease-in-out',
                   border: '1px solid rgba(11, 31, 58, 0.08)',
                   backgroundColor: COLORS.white,
+                  display: 'flex',
+                  alignItems: 'center',
                   '&:hover': {
                     transform: 'translateY(-4px)',
                     boxShadow: '0 8px 24px rgba(30, 77, 140, 0.15)',
@@ -307,10 +310,22 @@ const HomeComponent = ({ onNavigate }) => {
                   },
                 }}
               >
-                <CardActionArea onClick={() => handleNavigation('Services')} sx={{ p: 2.5, height: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                <CardActionArea
+                  onClick={() => handleNavigation('Services')}
+                  sx={{
+                    px: 2.5,
+                    py: 1.5,
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
                   <Box
                     sx={{
-                      p: 1.5,
+                      p: 1.2,
                       borderRadius: 2,
                       backgroundColor: 'rgba(62, 146, 204, 0.12)',
                       color: COLORS.blue,
@@ -318,14 +333,24 @@ const HomeComponent = ({ onNavigate }) => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      flexShrink: 0,
                     }}
                   >
                     {service.icon}
                   </Box>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 700, color: COLORS.navy, flexGrow: 1, fontSize: '0.98rem' }}>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontWeight: 700,
+                      color: COLORS.navy,
+                      flexGrow: 1,
+                      fontSize: '0.95rem',
+                      lineHeight: 1.2,
+                    }}
+                  >
                     {service.name}
                   </Typography>
-                  <ArrowIcon sx={{ color: COLORS.sky, fontSize: 20 }} />
+                  <ArrowIcon sx={{ color: COLORS.sky, fontSize: 20, flexShrink: 0, ml: 1 }} />
                 </CardActionArea>
               </Card>
             </Grid>
