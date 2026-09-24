@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   AppBar,
   Toolbar,
@@ -365,6 +366,11 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
       </Drawer>
     </>
   );
+};
+
+HeaderComponent.propTypes = {
+  activeTab: PropTypes.string,
+  onSelectTab: PropTypes.func,
 };
 
 export default HeaderComponent;
