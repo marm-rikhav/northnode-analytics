@@ -11,12 +11,6 @@ import {
   Stack,
 } from '@mui/material';
 import {
-  Cloud as CloudIcon,
-  AutoAwesome as AIIcon,
-  Build as DevOpsIcon,
-  Security as SecurityIcon,
-  Lightbulb as ConsultingIcon,
-  AccountBalance as FinanceIcon,
   ShoppingCart as RetailIcon,
   LocalShipping as LogisticsIcon,
   Public as GlobalIcon,
@@ -40,23 +34,23 @@ const servicesList = [
     name: 'Custom Software Development',
     desc: 'Tailored software solutions to solve your unique business challenges.',
     color: '#2563EB',
-    bg: '#EBF3FE',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    stripe: '#1D72FE',
+    bg: '#EFF6FF',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6" />
         <polyline points="8 6 2 12 8 18" />
       </svg>
     ),
   },
   {
-    name: 'Web Development',
+    name: 'Web Developments',
     desc: 'Modern, responsive and scalable web applications for your business.',
     color: '#059669',
+    stripe: '#10B981',
     bg: '#ECFDF5',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(167, 243, 208, 0.7) 0%, rgba(209, 250, 229, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" />
         <line x1="8" y1="21" x2="16" y2="21" />
         <line x1="12" y1="17" x2="12" y2="21" />
@@ -66,12 +60,12 @@ const servicesList = [
   {
     name: 'Mobile App Development',
     desc: 'High-performance mobile apps for iOS and Android platforms.',
-    color: '#7C3AED',
+    color: '#9333EA',
+    stripe: '#8B5CF6',
     bg: '#F5F3FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(221, 214, 254, 0.7) 0%, rgba(237, 233, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="3" />
         <line x1="12" y1="18" x2="12.01" y2="18" strokeWidth="2.5" />
       </svg>
     ),
@@ -80,21 +74,25 @@ const servicesList = [
     name: 'Cloud Solutions',
     desc: 'Scalable, secure and cost-efficient cloud infrastructure and services.',
     color: '#0284C7',
+    stripe: '#0EA5E9',
     bg: '#F0F9FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(186, 230, 253, 0.7) 0%, rgba(224, 242, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
-    icon: <CloudIcon sx={{ fontSize: 24, color: '#0284C7' }} />,
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+      </svg>
+    ),
   },
   {
     name: 'Data Analytics',
     desc: 'Turn data into actionable insights for smarter decisions.',
     color: '#C026D3',
+    stripe: '#A855F7',
     bg: '#FDF4FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(245, 208, 254, 0.7) 0%, rgba(250, 232, 255, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C026D3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 20V10" />
-        <path d="M12 20V4" />
-        <path d="M6 20v-6" />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C026D3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 20V14" />
+        <path d="M12 20V8" />
+        <path d="M18 20V12" />
       </svg>
     ),
   },
@@ -102,18 +100,24 @@ const servicesList = [
     name: 'Artificial Intelligence',
     desc: 'Intelligent solutions to automate, optimize and innovate.',
     color: '#EA580C',
-    bg: '#FFFBEB',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(254, 215, 170, 0.7) 0%, rgba(254, 243, 199, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
-    icon: <AIIcon sx={{ fontSize: 24, color: '#EA580C' }} />,
+    stripe: '#F59E0B',
+    bg: '#FFF7ED',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA580C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+        <path d="M5 3v4" />
+        <path d="M19 17v4" />
+      </svg>
+    ),
   },
   {
     name: 'Machine Learning',
     desc: 'Build intelligent systems that learn and evolve.',
     color: '#0D9488',
-    bg: '#F0FDFA',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(153, 246, 228, 0.7) 0%, rgba(204, 251, 241, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    stripe: '#10B981',
+    bg: '#ECFDF5',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" />
         <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" />
       </svg>
@@ -122,19 +126,23 @@ const servicesList = [
   {
     name: 'DevOps',
     desc: 'Faster delivery, better collaboration and reliable operations.',
-    color: '#6366F1',
-    bg: '#EEF2FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(199, 210, 254, 0.7) 0%, rgba(224, 231, 255, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
-    icon: <DevOpsIcon sx={{ fontSize: 24, color: '#6366F1' }} />,
+    color: '#7C3AED',
+    stripe: '#8B5CF6',
+    bg: '#F5F3FF',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      </svg>
+    ),
   },
   {
     name: 'UI/UX Design',
     desc: 'User-centric designs that create meaningful experiences.',
     color: '#2563EB',
+    stripe: '#3B82F6',
     bg: '#EFF6FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 19l7-7 3 3-7 7-3-3z" />
         <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
         <circle cx="11" cy="11" r="2" />
@@ -145,18 +153,23 @@ const servicesList = [
     name: 'Cybersecurity',
     desc: 'Proactive security for a safer digital tomorrow.',
     color: '#059669',
+    stripe: '#10B981',
     bg: '#ECFDF5',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(167, 243, 208, 0.7) 0%, rgba(209, 250, 229, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
-    icon: <SecurityIcon sx={{ fontSize: 24, color: '#059669' }} />,
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <polyline points="9 12 11 14 15 10" />
+      </svg>
+    ),
   },
   {
     name: 'QA & Testing',
     desc: 'Ensure quality, performance and reliability at every stage.',
-    color: '#8B5CF6',
-    bg: '#F5F3FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(221, 214, 254, 0.7) 0%, rgba(237, 233, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    color: '#6366F1',
+    stripe: '#8B5CF6',
+    bg: '#EEF2FF',
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
         <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
         <path d="m9 14 2 2 4-4" />
@@ -166,10 +179,16 @@ const servicesList = [
   {
     name: 'IT Consulting',
     desc: 'Strategic guidance to help you achieve your technology goals.',
-    color: '#1D4ED8',
-    bg: '#EFF6FF',
-    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
-    icon: <ConsultingIcon sx={{ fontSize: 24, color: '#1D4ED8' }} />,
+    color: '#0284C7',
+    stripe: '#0284C7',
+    bg: '#F0F9FF',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+        <path d="M9 18h6" />
+        <path d="M10 22h4" />
+      </svg>
+    ),
   },
 ];
 
@@ -518,105 +537,111 @@ const HomeComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 3. SERVICE PREVIEW (Exact match to target UI Screenshot Image 2) */}
+      {/* 3. SERVICE PREVIEW (Exact match to target UI Screenshot) */}
       <Box
         sx={{
           position: 'relative',
-          mb: 10,
-          mt: 4,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, sm: 4, md: 6 },
+          py: { xs: 8, md: 10 },
+          px: { xs: 2.5, sm: 4, md: 6, lg: 8 },
           overflow: 'hidden',
+          backgroundColor: '#F8FAFC',
+          background: 'radial-gradient(ellipse 70% 50% at 88% 12%, rgba(219, 234, 254, 0.55) 0%, rgba(248, 250, 252, 0) 70%), radial-gradient(ellipse 60% 40% at 10% 88%, rgba(219, 234, 254, 0.45) 0%, rgba(248, 250, 252, 0) 70%), #F8FAFC',
         }}
       >
-        {/* Ambient background glow top right */}
+        {/* Decorative Dot Matrix Top Right */}
         <Box
           sx={{
             position: 'absolute',
-            top: -80,
-            right: -80,
-            width: { xs: 280, md: 450 },
-            height: { xs: 280, md: 450 },
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.5) 0%, rgba(224, 242, 254, 0.2) 50%, rgba(255, 255, 255, 0) 75%)',
+            top: { xs: 20, md: 35 },
+            right: { xs: 20, md: 45 },
+            width: { xs: 100, md: 135 },
+            height: { xs: 70, md: 90 },
+            opacity: 0.45,
             pointerEvents: 'none',
             zIndex: 0,
+            backgroundImage: 'radial-gradient(#3B82F6 1.8px, transparent 1.8px)',
+            backgroundSize: '15px 15px',
           }}
         />
 
-        {/* Ambient background glow bottom left */}
+        {/* Decorative Dot Matrix Bottom Left */}
         <Box
           sx={{
             position: 'absolute',
-            bottom: -60,
-            left: -60,
-            width: { xs: 240, md: 380 },
-            height: { xs: 240, md: 380 },
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.4) 0%, rgba(224, 242, 254, 0.15) 50%, rgba(255, 255, 255, 0) 75%)',
+            bottom: { xs: 20, md: 35 },
+            left: { xs: 20, md: 45 },
+            width: { xs: 100, md: 135 },
+            height: { xs: 70, md: 90 },
+            opacity: 0.4,
             pointerEvents: 'none',
             zIndex: 0,
+            backgroundImage: 'radial-gradient(#3B82F6 1.8px, transparent 1.8px)',
+            backgroundSize: '15px 15px',
           }}
         />
 
-        {/* Header */}
-        <Box sx={{ position: 'relative', zIndex: 1, mb: 5, textAlign: 'left' }}>
+        {/* Section Header */}
+        <Box sx={{ position: 'relative', zIndex: 1, mb: 5, textAlign: 'left', maxWidth: '1440px', mx: 'auto' }}>
           <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 1.5 }}>
             <Typography
-              variant="overline"
               sx={{
-                color: '#1D4ED8',
+                color: '#1D72FE',
                 fontWeight: 700,
-                letterSpacing: 1.5,
+                letterSpacing: 2,
                 fontSize: '0.85rem',
+                textTransform: 'uppercase',
                 lineHeight: 1,
               }}
             >
               WHAT WE DO
             </Typography>
-            <Box sx={{ width: 36, height: 2, backgroundColor: '#1D4ED8', borderRadius: 1 }} />
+            <Box sx={{ width: 32, height: 2, backgroundColor: '#1D72FE', borderRadius: 1 }} />
           </Stack>
 
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
+              fontFamily: '"Inter", "Plus Jakarta Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
               color: '#0B1F3A',
               fontWeight: 800,
-              fontSize: { xs: '1.9rem', sm: '2.3rem', md: '2.6rem' },
-              letterSpacing: '-0.5px',
+              fontSize: { xs: '1.9rem', sm: '2.4rem', md: '2.85rem' },
+              letterSpacing: '-0.025em',
+              lineHeight: 1.15,
               mb: 1.5,
             }}
           >
-            Enterprise IT Services & Capabilities
+            Enterprise IT Services &{' '}
+            <Box component="span" sx={{ color: '#1D72FE' }}>
+              Capabilities
+            </Box>
           </Typography>
           <Typography
-            variant="body1"
             sx={{
-              color: '#475569',
-              maxWidth: '650px',
+              color: '#64748B',
+              maxWidth: '720px',
               lineHeight: 1.6,
-              fontSize: { xs: '0.95rem', md: '1.05rem' },
+              fontSize: { xs: '0.95rem', md: '1.02rem' },
+              fontWeight: 400,
             }}
           >
-            A full-spectrum portfolio of technology services enabling clients to engage us for specialized solutions or end-to-end digital delivery.
+            A full-spectrum portfolio of technology services, enabling clients to engage us for specialized solutions or end-to-end digital delivery.
           </Typography>
         </Box>
 
-        {/* 4 Cards Per Row Grid */}
+        {/* 4 Cards Per Row Grid (12 items matching attached snapshot) */}
         <Box
           sx={{
             position: 'relative',
             zIndex: 1,
+            maxWidth: '1440px',
+            mx: 'auto',
             display: 'grid',
             gridTemplateColumns: {
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
               md: 'repeat(4, 1fr)',
             },
-            '@media (min-width: 768px)': {
-              gridTemplateColumns: 'repeat(4, 1fr)',
-            },
-            gap: { xs: 2.5, sm: 2.5, md: 3 },
+            gap: { xs: 2.5, md: 3 },
             alignItems: 'stretch',
           }}
         >
@@ -624,144 +649,125 @@ const HomeComponent = ({ onNavigate }) => {
             <Card
               key={service.name}
               elevation={0}
+              onClick={() => handleNavigation('Services')}
               sx={{
-                height: '100%',
-                minHeight: { xs: 180, sm: 205 },
-                borderRadius: '20px',
+                cursor: 'pointer',
+                borderRadius: '16px',
                 backgroundColor: '#FFFFFF',
-                border: '1px solid rgba(226, 232, 240, 0.9)',
-                boxShadow: '0 4px 18px rgba(0, 0, 0, 0.03)',
+                border: '1px solid rgba(226, 232, 240, 0.85)',
+                borderLeft: `4px solid ${service.stripe}`,
+                boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
                 position: 'relative',
-                overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                animation: 'fadeInUp 0.5s ease-out forwards',
-                animationDelay: `${index * 35}ms`,
-                '@keyframes fadeInUp': {
-                  '0%': {
-                    opacity: 0,
-                    transform: 'translateY(16px)',
-                  },
-                  '100%': {
-                    opacity: 1,
-                    transform: 'translateY(0)',
-                  },
-                },
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                p: { xs: 2.5, md: 3 },
+                minHeight: { xs: 175, md: 190 },
+                overflow: 'hidden',
+                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
                 '&:hover': {
-                  transform: 'translateY(-5px)',
-                  boxShadow: '0 14px 30px rgba(30, 77, 140, 0.12)',
-                  borderColor: service.color,
-                  '& .service-arrow-badge': {
-                    backgroundColor: service.color,
+                  transform: 'translateY(-4px)',
+                  boxShadow: `0 14px 30px rgba(37, 99, 235, 0.12), -2px 0 10px ${service.stripe}33`,
+                  borderColor: 'rgba(59, 130, 246, 0.35)',
+                  borderLeftColor: service.stripe,
+                  '& .card-arrow-circle': {
+                    backgroundColor: service.stripe,
                     color: '#FFFFFF',
-                    transform: 'scale(1.08)',
-                  },
-                  '& .service-arrow-badge svg': {
                     transform: 'translateX(2px)',
+                    boxShadow: `0 4px 10px ${service.stripe}55`,
                   },
                 },
               }}
             >
-              {/* Bottom-right decorative corner gradient orb */}
+              {/* Left Accent Pill Stripe */}
               <Box
                 sx={{
                   position: 'absolute',
-                  bottom: -15,
-                  right: -15,
-                  width: 110,
-                  height: 110,
-                  borderRadius: '50%',
-                  background: service.glow,
-                  pointerEvents: 'none',
-                  zIndex: 0,
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                  width: '4px',
+                  backgroundColor: service.stripe,
+                  borderTopLeftRadius: '16px',
+                  borderBottomLeftRadius: '16px',
                 }}
               />
-
-              <CardActionArea
-                onClick={() => handleNavigation('Services')}
+              {/* Top-left Pastel Icon Badge */}
+              <Box
                 sx={{
-                  p: { xs: 2.5, sm: 3 },
-                  height: '100%',
-                  width: '100%',
+                  width: 44,
+                  height: 44,
+                  borderRadius: '12px',
+                  backgroundColor: service.bg,
                   display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  justifyContent: 'space-between',
-                  position: 'relative',
-                  zIndex: 1,
-                  textAlign: 'left',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 2,
                 }}
               >
-                {/* Top-left Icon Box with themed background */}
+                {service.icon}
+              </Box>
+
+              {/* Title */}
+              <Typography
+                sx={{
+                  fontWeight: 700,
+                  color: '#0F172A',
+                  fontSize: '1.02rem',
+                  lineHeight: 1.3,
+                  mb: 0.8,
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                {service.name}
+              </Typography>
+
+              {/* Description */}
+              <Typography
+                sx={{
+                  color: '#64748B',
+                  fontSize: '0.84rem',
+                  lineHeight: 1.5,
+                  mb: 1,
+                  pr: 3.5,
+                  flexGrow: 1,
+                }}
+              >
+                {service.desc}
+              </Typography>
+
+              {/* Bottom-right Arrow Circle */}
+              <Box
+                className="card-arrow-circle"
+                sx={{
+                  position: 'absolute',
+                  bottom: { xs: 16, md: 20 },
+                  right: { xs: 16, md: 20 },
+                  width: 26,
+                  height: 26,
+                  borderRadius: '50%',
+                  backgroundColor: '#EFF6FF',
+                  color: '#2563EB',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                }}
+              >
                 <Box
-                  sx={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: '14px',
-                    backgroundColor: service.bg,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2,
-                    transition: 'all 0.3s ease',
-                  }}
+                  component="svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  {service.icon}
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
                 </Box>
-
-                {/* Title */}
-                <Typography
-                  variant="subtitle1"
-                  sx={{
-                    fontWeight: 800,
-                    color: '#0B1F3A',
-                    fontSize: '1.05rem',
-                    lineHeight: 1.3,
-                    mb: 0.8,
-                    textAlign: 'left',
-                    width: '100%',
-                  }}
-                >
-                  {service.name}
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: '#64748B',
-                    fontSize: '0.84rem',
-                    lineHeight: 1.5,
-                    mb: 2,
-                    flexGrow: 1,
-                    textAlign: 'left',
-                    width: '100%',
-                  }}
-                >
-                  {service.desc}
-                </Typography>
-
-                {/* Bottom-right arrow button */}
-                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'flex-end', mt: 'auto' }}>
-                  <Box
-                    className="service-arrow-badge"
-                    sx={{
-                      width: 28,
-                      height: 28,
-                      borderRadius: '50%',
-                      backgroundColor: service.bg,
-                      color: service.color,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    <ArrowIcon sx={{ fontSize: 16, transition: 'all 0.3s ease-in-out' }} />
-                  </Box>
-                </Box>
-              </CardActionArea>
+              </Box>
             </Card>
           ))}
         </Box>
