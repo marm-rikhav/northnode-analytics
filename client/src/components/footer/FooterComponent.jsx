@@ -1,39 +1,26 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Box,
   Container,
-  Grid,
   Typography,
   Stack,
   Link,
   Divider,
-  Chip
 } from '@mui/material';
 import {
   LocationOn as LocationIcon,
   Email as EmailIcon,
   Phone as PhoneIcon,
   LinkedIn as LinkedInIcon,
-  VerifiedUser as TrustIcon,
-  Shield as SecurityIcon
 } from '@mui/icons-material';
-import companyLogo from '../../assets/companylogo.jpg';
-
-const COLORS = {
-  navy: '#0B1F3A',
-  blue: '#1E4D8C',
-  sky: '#3E92CC',
-  light: '#F2F5F9',
-  white: '#FFFFFF',
-};
+import companyLogo from '../../assets/logo_transparent.png';
 
 const navLinks = [
   { label: 'Home', name: 'Home' },
   { label: 'About Us', name: 'About Us' },
   { label: 'Services', name: 'Services' },
   { label: 'Industry', name: 'Industry' },
-  { label: 'Contact Us', name: 'Contact Us' }
+  { label: 'Contact Us', name: 'Contact Us' },
 ];
 
 const FooterComponent = ({ onNavigate }) => {
@@ -46,186 +33,361 @@ const FooterComponent = ({ onNavigate }) => {
   return (
     <Box
       component="footer"
+      id="footer"
       sx={{
-        backgroundColor: COLORS.navy,
-        color: COLORS.white,
-        pt: 6,
-        pb: 3,
-        borderTop: `3px solid ${COLORS.blue}`,
+        backgroundColor: '#0B1F3A',
+        color: '#FFFFFF',
+        pt: { xs: 6, md: 7 },
+        pb: { xs: 4, md: 5 },
         mt: 'auto',
       }}
     >
-      <Container maxWidth="xl">
-        <Grid container spacing={4} sx={{ mb: 5 }}>
-          {/* Column 1: Company */}
-          <Grid item xs={12} sm={6} md={3}>
-            <Stack spacing={2}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          px: { xs: '24px', sm: '40px', md: '80px', lg: '96px' },
+          boxSizing: 'border-box',
+        }}
+      >
+        {/* Equal-Width 3-Column Distribution: 1fr 1fr 1fr */}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(3, 1fr)',
+            },
+            gap: { xs: 4, sm: 3.5, md: 5, lg: 6 },
+            alignItems: 'start',
+          }}
+        >
+          {/* Column 1: Brand & Description */}
+          <Box>
+            <Stack spacing={2} alignItems="flex-start">
+              {/* Clean White Container for Dark Logo */}
+              <Box
+                sx={{
+                  width: 54,
+                  height: 54,
+                  borderRadius: '12px',
+                  backgroundColor: '#FFFFFF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  p: 0.8,
+                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.18)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                }}
+              >
                 <Box
                   component="img"
                   src={companyLogo}
                   alt="NorthNode Analytics Logo"
                   sx={{
-                    height: 44,
+                    maxHeight: 40,
+                    maxWidth: '100%',
                     width: 'auto',
-                    borderRadius: 1.5,
-                    backgroundColor: COLORS.white,
-                    p: 0.5,
+                    height: 'auto',
+                    objectFit: 'contain',
+                    display: 'block',
                   }}
                 />
-                <Box>
-                  <Typography variant="h6" sx={{ fontWeight: 800, color: COLORS.white, lineHeight: 1.1 }}>
-                    NORTHNODE
-                  </Typography>
-                  <Typography variant="caption" sx={{ color: COLORS.sky, fontWeight: 700, letterSpacing: 1.5, textTransform: 'uppercase' }}>
-                    Analytics
-                  </Typography>
-                </Box>
               </Box>
-              <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.6 }}>
+
+              <Typography
+                sx={{
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: { xs: '1.05rem', sm: '0.98rem', md: '1.05rem' },
+                  lineHeight: 1.35,
+                  letterSpacing: '-0.01em',
+                  mt: 0.5,
+                  maxWidth: 320,
+                }}
+              >
                 Engineering Intelligent Digital Solutions
               </Typography>
-            </Stack>
-          </Grid>
 
-          {/* Column 2: Navigate */}
-          <Grid item xs={12} sm={6} md={2}>
-            <Typography variant="subtitle1" sx={{ color: COLORS.sky, fontWeight: 700, mb: 2, letterSpacing: 0.5 }}>
-              Navigate
+              <Typography
+                sx={{
+                  color: '#C7D4E5',
+                  fontSize: { xs: '0.88rem', sm: '0.82rem', md: '0.88rem' },
+                  lineHeight: 1.65,
+                  maxWidth: 320,
+                }}
+              >
+                We build scalable, secure and innovative technology solutions that help businesses transform and grow in the digital world.
+              </Typography>
+            </Stack>
+          </Box>
+
+          {/* Column 2: Quick Links */}
+          <Box>
+            <Typography
+              sx={{
+                color: '#FFFFFF',
+                fontWeight: 700,
+                fontSize: { xs: '1.08rem', sm: '1rem', md: '1.08rem' },
+                letterSpacing: '-0.01em',
+                mb: 1,
+              }}
+            >
+              Quick Links
             </Typography>
-            <Stack spacing={1.2}>
+            <Box sx={{ width: 28, height: 2.5, backgroundColor: '#3E92CC', borderRadius: 1, mb: 2.5 }} />
+
+            <Stack spacing={1.6}>
               {navLinks.map((link) => (
-                <Link
+                <Box
                   key={link.name}
-                  component="button"
-                  variant="body2"
                   onClick={() => handleNavClick(link.name)}
                   sx={{
-                    color: 'rgba(255, 255, 255, 0.85)',
-                    textAlign: 'left',
-                    textDecoration: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    maxWidth: { xs: 165, sm: 155, md: 175 },
+                    cursor: 'pointer',
+                    color: '#FFFFFF',
+                    fontSize: { xs: '0.92rem', sm: '0.86rem', md: '0.92rem' },
                     fontWeight: 500,
-                    transition: 'all 0.2s ease-in-out',
+                    transition: 'all 0.2s ease',
                     '&:hover': {
-                      color: COLORS.sky,
-                      transform: 'translateX(3px)',
+                      color: '#3E92CC',
+                      '& .footer-link-arrow': {
+                        color: '#3E92CC',
+                        stroke: '#3E92CC',
+                        transform: 'translateX(3px)',
+                      },
                     },
                   }}
                 >
-                  {link.label}
-                </Link>
+                  <span>{link.label}</span>
+                  <Box
+                    component="svg"
+                    className="footer-link-arrow"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#3E92CC"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    sx={{ transition: 'all 0.2s ease', flexShrink: 0 }}
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </Box>
+                </Box>
               ))}
             </Stack>
-          </Grid>
+          </Box>
 
-          {/* Column 3: Contact */}
-          <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="subtitle1" sx={{ color: COLORS.sky, fontWeight: 700, mb: 2, letterSpacing: 0.5 }}>
-              Contact
+          {/* Column 3: Contact Us */}
+          <Box>
+            <Typography
+              sx={{
+                color: '#FFFFFF',
+                fontWeight: 700,
+                fontSize: { xs: '1.08rem', sm: '1rem', md: '1.08rem' },
+                letterSpacing: '-0.01em',
+                mb: 1,
+              }}
+            >
+              Contact Us
             </Typography>
-            <Stack spacing={1.5}>
-              <Stack direction="row" spacing={1.5} alignItems="flex-start">
-                <LocationIcon sx={{ color: COLORS.sky, fontSize: 20, mt: 0.3 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.6 }}>
-                  121 King Street West, Suite 1900<br />
+            <Box sx={{ width: 28, height: 2.5, backgroundColor: '#3E92CC', borderRadius: 1, mb: 2.5 }} />
+
+            <Stack spacing={2}>
+              {/* Address */}
+              <Stack direction="row" spacing={1.8} alignItems="flex-start">
+                <Box
+                  sx={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    backgroundColor: '#123D70',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    mt: 0.2,
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      backgroundColor: '#1E4D8C',
+                    },
+                  }}
+                >
+                  <LocationIcon sx={{ color: '#3E92CC', fontSize: 18 }} />
+                </Box>
+                <Typography sx={{ color: '#C7D4E5', fontSize: { xs: '0.86rem', sm: '0.8rem', md: '0.86rem' }, lineHeight: 1.55 }}>
+                  121 King Street West, Suite 1900
+                  <br />
                   Toronto, Ontario M5H 3T9, Canada
                 </Typography>
               </Stack>
 
-              <Stack direction="row" spacing={1.5} alignItems="center">
-                <EmailIcon sx={{ color: COLORS.sky, fontSize: 20 }} />
+              {/* Email */}
+              <Stack direction="row" spacing={1.8} alignItems="center">
+                <Box
+                  sx={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    backgroundColor: '#123D70',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      backgroundColor: '#1E4D8C',
+                    },
+                  }}
+                >
+                  <EmailIcon sx={{ color: '#3E92CC', fontSize: 18 }} />
+                </Box>
                 <Link
                   href="mailto:info@northnodeanalytics.com"
-                  underline="hover"
-                  sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem' }}
+                  underline="none"
+                  sx={{
+                    color: '#FFFFFF',
+                    fontSize: { xs: '0.88rem', sm: '0.8rem', md: '0.88rem' },
+                    transition: 'color 0.2s ease',
+                    wordBreak: 'break-word',
+                    '&:hover': { color: '#3E92CC' },
+                  }}
                 >
                   info@northnodeanalytics.com
                 </Link>
               </Stack>
 
-              <Stack direction="row" spacing={1.5} alignItems="center">
-                <PhoneIcon sx={{ color: COLORS.sky, fontSize: 20 }} />
+              {/* Phone */}
+              <Stack direction="row" spacing={1.8} alignItems="center">
+                <Box
+                  sx={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    backgroundColor: '#123D70',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      backgroundColor: '#1E4D8C',
+                    },
+                  }}
+                >
+                  <PhoneIcon sx={{ color: '#3E92CC', fontSize: 18 }} />
+                </Box>
                 <Link
                   href="tel:+14165552408"
-                  underline="hover"
-                  sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem' }}
+                  underline="none"
+                  sx={{
+                    color: '#FFFFFF',
+                    fontSize: { xs: '0.88rem', sm: '0.82rem', md: '0.88rem' },
+                    transition: 'color 0.2s ease',
+                    '&:hover': { color: '#3E92CC' },
+                  }}
                 >
                   +1 (416) 555-2408
                 </Link>
               </Stack>
 
-              <Stack direction="row" spacing={1.5} alignItems="center">
-                <LinkedInIcon sx={{ color: COLORS.sky, fontSize: 20 }} />
+              {/* LinkedIn */}
+              <Stack direction="row" spacing={1.8} alignItems="center">
+                <Box
+                  sx={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    backgroundColor: '#123D70',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      backgroundColor: '#1E4D8C',
+                    },
+                  }}
+                >
+                  <LinkedInIcon sx={{ color: '#3E92CC', fontSize: 20 }} />
+                </Box>
                 <Link
                   href="https://linkedin.com/company/northnodeanalytics"
                   target="_blank"
                   rel="noopener noreferrer"
-                  underline="hover"
-                  sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem' }}
+                  underline="none"
+                  sx={{
+                    color: '#FFFFFF',
+                    fontSize: { xs: '0.88rem', sm: '0.82rem', md: '0.88rem' },
+                    transition: 'color 0.2s ease',
+                    '&:hover': { color: '#3E92CC' },
+                  }}
                 >
                   LinkedIn
                 </Link>
               </Stack>
             </Stack>
-          </Grid>
+          </Box>
+        </Box>
 
-          {/* Column 4: Trust & Credentials */}
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="subtitle1" sx={{ color: COLORS.sky, fontWeight: 700, mb: 2, letterSpacing: 0.5 }}>
-              Trust & Credentials
-            </Typography>
-            <Stack spacing={1.5} alignItems="flex-start">
-              <Chip
-                icon={<SecurityIcon sx={{ color: `${COLORS.sky} !important` }} />}
-                label="ISO 27001 Certified (In Progress)"
-                size="small"
-                sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  color: COLORS.white,
-                  fontWeight: 600,
-                  fontSize: '0.78rem',
-                }}
-              />
-              <Chip
-                icon={<TrustIcon sx={{ color: `${COLORS.sky} !important` }} />}
-                label="SOC 2 Compliant Controls"
-                size="small"
-                sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  color: COLORS.white,
-                  fontWeight: 600,
-                  fontSize: '0.78rem',
-                }}
-              />
-              <Typography variant="body2" sx={{ color: COLORS.sky, fontWeight: 700, mt: 1 }}>
-                180+ Employees · 120+ Clients · 14 Countries
-              </Typography>
-            </Stack>
-          </Grid>
-        </Grid>
+        {/* Divider */}
+        <Divider sx={{ borderColor: '#1E4D8C', mt: { xs: 5, md: 6 }, mb: { xs: 3, md: 3.5 } }} />
 
-        <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.12)', mb: 3 }} />
-
-        {/* Bottom legal strip (full width, small text) */}
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          justifyContent="space-between"
-          alignItems="center"
-          spacing={1.5}
+        {/* Bottom legal row */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            alignItems: { xs: 'flex-start', sm: 'center' },
+            justifyContent: 'space-between',
+            width: '100%',
+            gap: 2,
+          }}
         >
-          <Typography variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+          <Typography sx={{ color: '#AFC0D4', fontSize: '0.84rem', flexShrink: 0 }}>
             © 2026 NorthNode Analytics Inc. All rights reserved.
           </Typography>
-          <Stack direction="row" spacing={2}>
-            <Link underline="hover" sx={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.75rem', cursor: 'pointer' }}>
+
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 2,
+              marginLeft: { sm: 'auto' },
+            }}
+          >
+            <Link
+              underline="none"
+              sx={{
+                color: '#AFC0D4',
+                fontSize: '0.84rem',
+                cursor: 'pointer',
+                transition: 'color 0.2s ease',
+                '&:hover': { color: '#3E92CC' },
+              }}
+            >
               Privacy Policy
             </Link>
-            <Typography variant="caption" sx={{ color: 'rgba(255, 255, 255, 0.3)' }}>·</Typography>
-            <Link underline="hover" sx={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.75rem', cursor: 'pointer' }}>
+            <Typography sx={{ color: 'rgba(175, 192, 212, 0.4)', fontSize: '0.84rem' }}>|</Typography>
+            <Link
+              underline="none"
+              sx={{
+                color: '#AFC0D4',
+                fontSize: '0.84rem',
+                cursor: 'pointer',
+                transition: 'color 0.2s ease',
+                '&:hover': { color: '#3E92CC' },
+              }}
+            >
               Terms of Service
             </Link>
-          </Stack>
-        </Stack>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );
