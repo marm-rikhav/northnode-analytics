@@ -4,38 +4,28 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardActionArea,
   Button,
-  Chip,
   Paper,
-  Stack
+  Stack,
 } from '@mui/material';
 import {
-  Code as CodeIcon,
-  Web as WebIcon,
-  PhoneIphone as MobileIcon,
   Cloud as CloudIcon,
-  BarChart as AnalyticsIcon,
   AutoAwesome as AIIcon,
-  Hub as MLIcon,
   Build as DevOpsIcon,
-  Palette as DesignIcon,
   Security as SecurityIcon,
-  FactCheck as QAIcon,
   Lightbulb as ConsultingIcon,
   AccountBalance as FinanceIcon,
-  LocalHospital as HealthIcon,
   ShoppingCart as RetailIcon,
   LocalShipping as LogisticsIcon,
   Public as GlobalIcon,
   Groups as SeniorTeamsIcon,
   Layers as FullStackIcon,
   ArrowForward as ArrowIcon,
-  LocationOn as LocationIcon,
-  CalendarToday as CalendarIcon
 } from '@mui/icons-material';
+import contactUsBg from './homeassests/contactusImg.png';
+import coverPageBg from './homeassests/coverpage.png';
 
 const COLORS = {
   navy: '#0B1F3A',
@@ -46,58 +36,205 @@ const COLORS = {
 };
 
 const servicesList = [
-  { name: 'Custom Software Development', icon: <CodeIcon fontSize="medium" /> },
-  { name: 'Web Development', icon: <WebIcon fontSize="medium" /> },
-  { name: 'Mobile App Development', icon: <MobileIcon fontSize="medium" /> },
-  { name: 'Cloud Solutions', icon: <CloudIcon fontSize="medium" /> },
-  { name: 'Data Analytics', icon: <AnalyticsIcon fontSize="medium" /> },
-  { name: 'Artificial Intelligence', icon: <AIIcon fontSize="medium" /> },
-  { name: 'Machine Learning', icon: <MLIcon fontSize="medium" /> },
-  { name: 'DevOps', icon: <DevOpsIcon fontSize="medium" /> },
-  { name: 'UI/UX Design', icon: <DesignIcon fontSize="medium" /> },
-  { name: 'Cybersecurity', icon: <SecurityIcon fontSize="medium" /> },
-  { name: 'QA & Testing', icon: <QAIcon fontSize="medium" /> },
-  { name: 'IT Consulting', icon: <ConsultingIcon fontSize="medium" /> }
+  {
+    name: 'Custom Software Development',
+    desc: 'Tailored software solutions to solve your unique business challenges.',
+    color: '#2563EB',
+    bg: '#EBF3FE',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Web Development',
+    desc: 'Modern, responsive and scalable web applications for your business.',
+    color: '#059669',
+    bg: '#ECFDF5',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(167, 243, 208, 0.7) 0%, rgba(209, 250, 229, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Mobile App Development',
+    desc: 'High-performance mobile apps for iOS and Android platforms.',
+    color: '#7C3AED',
+    bg: '#F5F3FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(221, 214, 254, 0.7) 0%, rgba(237, 233, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" strokeWidth="2.5" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Cloud Solutions',
+    desc: 'Scalable, secure and cost-efficient cloud infrastructure and services.',
+    color: '#0284C7',
+    bg: '#F0F9FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(186, 230, 253, 0.7) 0%, rgba(224, 242, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: <CloudIcon sx={{ fontSize: 24, color: '#0284C7' }} />,
+  },
+  {
+    name: 'Data Analytics',
+    desc: 'Turn data into actionable insights for smarter decisions.',
+    color: '#C026D3',
+    bg: '#FDF4FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(245, 208, 254, 0.7) 0%, rgba(250, 232, 255, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C026D3" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 20V10" />
+        <path d="M12 20V4" />
+        <path d="M6 20v-6" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Artificial Intelligence',
+    desc: 'Intelligent solutions to automate, optimize and innovate.',
+    color: '#EA580C',
+    bg: '#FFFBEB',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(254, 215, 170, 0.7) 0%, rgba(254, 243, 199, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: <AIIcon sx={{ fontSize: 24, color: '#EA580C' }} />,
+  },
+  {
+    name: 'Machine Learning',
+    desc: 'Build intelligent systems that learn and evolve.',
+    color: '#0D9488',
+    bg: '#F0FDFA',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(153, 246, 228, 0.7) 0%, rgba(204, 251, 241, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0D9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" />
+        <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'DevOps',
+    desc: 'Faster delivery, better collaboration and reliable operations.',
+    color: '#6366F1',
+    bg: '#EEF2FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(199, 210, 254, 0.7) 0%, rgba(224, 231, 255, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: <DevOpsIcon sx={{ fontSize: 24, color: '#6366F1' }} />,
+  },
+  {
+    name: 'UI/UX Design',
+    desc: 'User-centric designs that create meaningful experiences.',
+    color: '#2563EB',
+    bg: '#EFF6FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 19l7-7 3 3-7 7-3-3z" />
+        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+        <circle cx="11" cy="11" r="2" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Cybersecurity',
+    desc: 'Proactive security for a safer digital tomorrow.',
+    color: '#059669',
+    bg: '#ECFDF5',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(167, 243, 208, 0.7) 0%, rgba(209, 250, 229, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: <SecurityIcon sx={{ fontSize: 24, color: '#059669' }} />,
+  },
+  {
+    name: 'QA & Testing',
+    desc: 'Ensure quality, performance and reliability at every stage.',
+    color: '#8B5CF6',
+    bg: '#F5F3FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(221, 214, 254, 0.7) 0%, rgba(237, 233, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        <path d="m9 14 2 2 4-4" />
+      </svg>
+    ),
+  },
+  {
+    name: 'IT Consulting',
+    desc: 'Strategic guidance to help you achieve your technology goals.',
+    color: '#1D4ED8',
+    bg: '#EFF6FF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+    icon: <ConsultingIcon sx={{ fontSize: 24, color: '#1D4ED8' }} />,
+  },
 ];
+
+const HeartPulseIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+      fill="#0D9488"
+    />
+    <path
+      d="M4.5 12.5h3.2l1.6-3 2.4 6 2-4.5 1.5 2.5h4.3"
+      stroke="#FFFFFF"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const industriesList = [
   {
     title: 'Financial Services',
-    desc: 'Core banking modernization, fraud analytics & regulatory reporting',
-    icon: <FinanceIcon sx={{ fontSize: 36, color: COLORS.sky }} />
+    desc: 'Supporting banks, insurers and financial institutions with secure, scalable and compliant technology solutions.',
+    icon: <FinanceIcon sx={{ fontSize: 28, color: '#2563EB' }} />,
+    bg: '#EBF3FE',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.3) 50%, rgba(255, 255, 255, 0) 75%)',
   },
   {
     title: 'Healthcare & Life Sciences',
-    desc: 'Patient data platforms, secure health records & clinical analytics',
-    icon: <HealthIcon sx={{ fontSize: 36, color: COLORS.sky }} />
+    desc: 'Enabling better outcomes with technology that supports patients, providers and research.',
+    icon: <HeartPulseIcon />,
+    bg: '#E6F7F5',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(153, 246, 228, 0.7) 0%, rgba(204, 251, 241, 0.3) 50%, rgba(255, 255, 255, 0) 75%)',
   },
   {
     title: 'Retail & E-Commerce',
-    desc: 'Omnichannel platforms, personalization engines & inventory intelligence',
-    icon: <RetailIcon sx={{ fontSize: 36, color: COLORS.sky }} />
+    desc: 'Building seamless digital experiences that drive engagement, loyalty and growth.',
+    icon: <RetailIcon sx={{ fontSize: 28, color: '#7C3AED' }} />,
+    bg: '#F3EEFF',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(233, 213, 255, 0.7) 0%, rgba(243, 232, 255, 0.3) 50%, rgba(255, 255, 255, 0) 75%)',
   },
   {
     title: 'Manufacturing & Logistics',
-    desc: 'IoT-enabled operations, supply chain visibility & predictive maintenance',
-    icon: <LogisticsIcon sx={{ fontSize: 36, color: COLORS.sky }} />
+    desc: 'Optimizing operations with smart, connected and data-driven solutions.',
+    icon: <LogisticsIcon sx={{ fontSize: 28, color: '#EA580C' }} />,
+    bg: '#FFF4EB',
+    glow: 'radial-gradient(circle at 100% 100%, rgba(254, 215, 170, 0.7) 0%, rgba(255, 237, 213, 0.3) 50%, rgba(255, 255, 255, 0) 75%)',
   }
 ];
 
 const whyChooseUsHighlights = [
   {
     title: 'Canadian-Based Precision',
-    desc: 'Canadian-based delivery with global engagement experience across 14+ countries.',
-    icon: <GlobalIcon sx={{ fontSize: 40, color: COLORS.blue }} />
+    desc: 'Canadian-based, driven with a global perspective and a commitment to excellence in everything we do.',
+    icon: <GlobalIcon sx={{ fontSize: 28, color: '#2563EB' }} />
   },
   {
     title: 'Senior-Led Teams',
-    desc: 'Every engagement is guided by an experienced architect or delivery lead.',
-    icon: <SeniorTeamsIcon sx={{ fontSize: 40, color: COLORS.blue }} />
+    desc: 'Every engagement is guided by an experienced leadership team with deep industry and technical expertise.',
+    icon: <SeniorTeamsIcon sx={{ fontSize: 28, color: '#2563EB' }} />
   },
   {
     title: 'Full-Stack Competency',
     desc: 'Deep bench across software, cloud, data, and AI — one partner, full-stack capability.',
-    icon: <FullStackIcon sx={{ fontSize: 40, color: COLORS.blue }} />
+    icon: <FullStackIcon sx={{ fontSize: 28, color: '#2563EB' }} />
   }
 ];
 
@@ -110,455 +247,1191 @@ const HomeComponent = ({ onNavigate }) => {
 
   return (
     <Box sx={{ backgroundColor: COLORS.light, pb: 6 }}>
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO COVER SECTION */}
       <Box
         sx={{
-          background: `linear-gradient(135deg, ${COLORS.navy} 0%, ${COLORS.blue} 100%)`,
+          backgroundColor: '#051329',
+          backgroundImage: `url(${coverPageBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: { xs: '70% center', md: 'right center' },
+          backgroundRepeat: 'no-repeat',
           color: COLORS.white,
-          py: { xs: 8, md: 10 },
-          px: 2,
+          pt: { xs: 8, md: 10 },
+          pb: { xs: 6, md: 8 },
           position: 'relative',
           overflow: 'hidden',
-          boxShadow: '0 4px 20px rgba(11, 31, 58, 0.25)',
         }}
       >
-        <Container maxWidth="lg">
-          <Stack spacing={3} alignItems="flex-start">
-            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
-              <Chip
-                icon={<LocationIcon sx={{ color: `${COLORS.sky} !important` }} />}
-                label="Toronto, Ontario, Canada"
+
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+          {/* Subtitle / Est location line */}
+          <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 3 }}>
+            <Box sx={{ width: 28, height: 2.5, backgroundColor: '#1D72FE', borderRadius: 1 }} />
+            <Typography
+              variant="caption"
+              sx={{
+                color: '#E2E8F0',
+                fontWeight: 600,
+                letterSpacing: 0.5,
+                fontSize: '0.92rem',
+                textTransform: 'none',
+              }}
+            >
+              Toronto · Est. 2016
+            </Typography>
+          </Stack>
+
+          {/* Large Sans-Serif Modern Headline */}
+          <Box sx={{ mb: 3 }}>
+            <Typography
+              variant="h1"
+              sx={{
+                fontFamily: '"Inter", "Plus Jakarta Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                fontWeight: 800,
+                color: '#FFFFFF',
+                fontSize: { xs: '2.5rem', sm: '3.6rem', md: '4.5rem' },
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              Engineering intelligent
+            </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                fontFamily: '"Inter", "Plus Jakarta Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                fontWeight: 800,
+                color: '#38BDF8',
+                fontSize: { xs: '2.5rem', sm: '3.6rem', md: '4.5rem' },
+                lineHeight: 1.1,
+                letterSpacing: '-0.025em',
+              }}
+            >
+              digital solutions.
+            </Typography>
+          </Box>
+
+          {/* Paragraph body */}
+          <Typography
+            variant="body1"
+            sx={{
+              color: '#94A3B8',
+              fontSize: { xs: '1rem', md: '1.12rem' },
+              maxWidth: '560px',
+              lineHeight: 1.65,
+              mb: 4.5,
+            }}
+          >
+            Software, cloud, and data engineering for organizations that need to build, scale, and secure what comes next — delivered by a 180-person team working across 14 countries.
+          </Typography>
+
+          {/* Action Buttons */}
+          <Stack direction="row" spacing={2.5} alignItems="center" sx={{ mb: 7, flexWrap: 'wrap', gap: 2 }}>
+            <Button
+              variant="contained"
+              onClick={() => handleNavigation('Contact Us')}
+              endIcon={<ArrowIcon sx={{ fontSize: 18, transition: 'transform 0.2s ease' }} />}
+              sx={{
+                backgroundColor: '#1D72FE',
+                color: '#FFFFFF',
+                fontWeight: 700,
+                px: 3.5,
+                py: 1.5,
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontSize: '1rem',
+                boxShadow: '0 4px 16px rgba(29, 114, 254, 0.35)',
+                '&:hover': {
+                  backgroundColor: '#0D62EE',
+                  boxShadow: '0 8px 24px rgba(29, 114, 254, 0.5)',
+                  '& svg': {
+                    transform: 'translateX(3px)',
+                  },
+                },
+              }}
+            >
+              Start a Conversation
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => handleNavigation('Services')}
+              endIcon={<ArrowIcon sx={{ fontSize: 18, transition: 'transform 0.2s ease' }} />}
+              sx={{
+                borderColor: 'rgba(255, 255, 255, 0.25)',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                px: 3,
+                py: 1.4,
+                borderRadius: '12px',
+                textTransform: 'none',
+                fontSize: '1rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.02)',
+                '&:hover': {
+                  borderColor: '#38BDF8',
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                  color: '#38BDF8',
+                  '& svg': {
+                    transform: 'translateX(3px)',
+                  },
+                },
+              }}
+            >
+              See our work
+            </Button>
+          </Stack>
+
+          {/* Stats Bar with Icon Badges (Matching Image 2) */}
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 3, sm: 5, md: 6 }}
+            alignItems={{ xs: 'flex-start', sm: 'center' }}
+          >
+            {/* Stat 1: 180+ Engineers & Consultants */}
+            <Stack direction="row" spacing={2} alignItems="center">
+              <Box
                 sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  color: COLORS.white,
-                  fontWeight: 600,
-                  backdropFilter: 'blur(4px)',
+                  width: 44,
+                  height: 44,
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(30, 77, 140, 0.35)',
+                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
                 }}
-              />
-              <Chip
-                icon={<CalendarIcon sx={{ color: `${COLORS.sky} !important` }} />}
-                label="2026 Profile"
-                sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  color: COLORS.white,
-                  fontWeight: 600,
-                  backdropFilter: 'blur(4px)',
-                }}
-              />
+              >
+                <SeniorTeamsIcon sx={{ fontSize: 20, color: '#38BDF8' }} />
+              </Box>
+              <Box>
+                <Typography
+                  sx={{
+                    fontWeight: 800,
+                    color: '#FFFFFF',
+                    fontSize: '1.5rem',
+                    lineHeight: 1.1,
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  180+
+                </Typography>
+                <Typography
+                  sx={{
+                    color: '#94A3B8',
+                    fontSize: '0.85rem',
+                    fontWeight: 500,
+                    mt: 0.3,
+                  }}
+                >
+                  Engineers & Consultants
+                </Typography>
+              </Box>
             </Stack>
 
-            <Typography
-              variant="h2"
-              component="h1"
-              sx={{
-                fontWeight: 800,
-                fontSize: { xs: '2.2rem', sm: '3rem', md: '3.6rem' },
-                letterSpacing: -0.5,
-                lineHeight: 1.15,
-                maxW: '900px',
-              }}
-            >
-              ENGINEERING INTELLIGENT DIGITAL SOLUTIONS
-            </Typography>
-
-            <Typography
-              variant="h6"
-              sx={{
-                color: COLORS.sky,
-                fontWeight: 600,
-                fontSize: { xs: '1rem', md: '1.25rem' },
-                letterSpacing: 0.5,
-              }}
-            >
-              Software Development · Cloud · Data Analytics · Artificial Intelligence · Cybersecurity
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{
-                color: 'rgba(255, 255, 255, 0.9)',
-                fontSize: { xs: '1rem', md: '1.15rem' },
-                maxWidth: '820px',
-                lineHeight: 1.7,
-              }}
-            >
-              NorthNode Analytics is a Toronto-headquartered technology company delivering enterprise-grade software, cloud, and data engineering services to organizations across North America and beyond. We combine deep engineering expertise with a consultative approach to help clients modernize, scale, and compete.
-            </Typography>
-
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}>
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<ArrowIcon />}
-                onClick={() => handleNavigation('Services')}
+            {/* Stat 2: 120+ Clients Served */}
+            <Stack direction="row" spacing={2} alignItems="center">
+              <Box
                 sx={{
-                  backgroundColor: COLORS.sky,
-                  color: COLORS.navy,
-                  fontWeight: 700,
-                  px: 4,
-                  py: 1.5,
-                  borderRadius: 2,
-                  textTransform: 'none',
-                  fontSize: '1.05rem',
-                  boxShadow: '0 4px 14px rgba(62, 146, 204, 0.4)',
-                  '&:hover': {
-                    backgroundColor: COLORS.white,
-                    color: COLORS.blue,
-                  },
+                  width: 44,
+                  height: 44,
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(30, 77, 140, 0.35)',
+                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
                 }}
               >
-                Explore Services
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                onClick={() => handleNavigation('Contact Us')}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+              </Box>
+              <Box>
+                <Typography
+                  sx={{
+                    fontWeight: 800,
+                    color: '#FFFFFF',
+                    fontSize: '1.5rem',
+                    lineHeight: 1.1,
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  120+
+                </Typography>
+                <Typography
+                  sx={{
+                    color: '#94A3B8',
+                    fontSize: '0.85rem',
+                    fontWeight: 500,
+                    mt: 0.3,
+                  }}
+                >
+                  Clients Served
+                </Typography>
+              </Box>
+            </Stack>
+
+            {/* Stat 3: 14 Countries Delivered In */}
+            <Stack direction="row" spacing={2} alignItems="center">
+              <Box
                 sx={{
-                  color: COLORS.white,
-                  borderColor: 'rgba(255, 255, 255, 0.5)',
-                  fontWeight: 600,
-                  px: 4,
-                  py: 1.5,
-                  borderRadius: 2,
-                  textTransform: 'none',
-                  fontSize: '1.05rem',
-                  '&:hover': {
-                    borderColor: COLORS.sky,
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  },
+                  width: 44,
+                  height: 44,
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(30, 77, 140, 0.35)',
+                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
                 }}
               >
-                Get in Touch
-              </Button>
+                <GlobalIcon sx={{ fontSize: 20, color: '#38BDF8' }} />
+              </Box>
+              <Box>
+                <Typography
+                  sx={{
+                    fontWeight: 800,
+                    color: '#FFFFFF',
+                    fontSize: '1.5rem',
+                    lineHeight: 1.1,
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  14
+                </Typography>
+                <Typography
+                  sx={{
+                    color: '#94A3B8',
+                    fontSize: '0.85rem',
+                    fontWeight: 500,
+                    mt: 0.3,
+                  }}
+                >
+                  Countries Delivered In
+                </Typography>
+              </Box>
             </Stack>
           </Stack>
         </Container>
       </Box>
 
-      {/* 2. SNAPSHOT STATS BAR (Corporate Snapshot) */}
-      <Container maxWidth="lg" sx={{ mt: -4, mb: 6, position: 'relative', zIndex: 2 }}>
-        <Paper
-          elevation={4}
+      {/* 3. SERVICE PREVIEW (Exact match to target UI Screenshot Image 2) */}
+      <Box
+        sx={{
+          position: 'relative',
+          mb: 10,
+          mt: 4,
+          py: { xs: 4, md: 6 },
+          px: { xs: 2, sm: 4, md: 6 },
+          overflow: 'hidden',
+        }}
+      >
+        {/* Ambient background glow top right */}
+        <Box
           sx={{
-            p: { xs: 3, md: 4 },
-            borderRadius: 3,
-            backgroundColor: COLORS.white,
-            border: `1px solid rgba(30, 77, 140, 0.12)`,
+            position: 'absolute',
+            top: -80,
+            right: -80,
+            width: { xs: 280, md: 450 },
+            height: { xs: 280, md: 450 },
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.5) 0%, rgba(224, 242, 254, 0.2) 50%, rgba(255, 255, 255, 0) 75%)',
+            pointerEvents: 'none',
+            zIndex: 0,
           }}
-        >
-          <Grid container spacing={3} justifyContent="space-around" alignItems="center">
-            <Grid item xs={12} sm={4} textAlign="center">
-              <Typography variant="h3" sx={{ fontWeight: 800, color: COLORS.navy }}>
-                2016
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: COLORS.blue, fontWeight: 600 }}>
-                Founded in Toronto
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4} textAlign="center" sx={{ borderLeft: { sm: `1px solid rgba(11, 31, 58, 0.1)` }, borderRight: { sm: `1px solid rgba(11, 31, 58, 0.1)` } }}>
-              <Typography variant="h3" sx={{ fontWeight: 800, color: COLORS.sky }}>
-                180+
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: COLORS.navy, fontWeight: 600 }}>
-                Engineering & Delivery Experts
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4} textAlign="center">
-              <Typography variant="h3" sx={{ fontWeight: 800, color: COLORS.navy }}>
-                120+
-              </Typography>
-              <Typography variant="subtitle1" sx={{ color: COLORS.blue, fontWeight: 600 }}>
-                Clients Across 14 Countries
-              </Typography>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Container>
+        />
 
-      {/* 3. SERVICE PREVIEW (12 Clickable Tiles) */}
-      <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Box textAlign="center" sx={{ mb: 5 }}>
-          <Typography variant="overline" sx={{ color: COLORS.sky, fontWeight: 700, letterSpacing: 1.5, fontSize: '0.85rem' }}>
-            WHAT WE DO
-          </Typography>
-          <Typography variant="h4" sx={{ color: COLORS.navy, fontWeight: 800, mt: 0.5 }}>
+        {/* Ambient background glow bottom left */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: -60,
+            left: -60,
+            width: { xs: 240, md: 380 },
+            height: { xs: 240, md: 380 },
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.4) 0%, rgba(224, 242, 254, 0.15) 50%, rgba(255, 255, 255, 0) 75%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Header */}
+        <Box sx={{ position: 'relative', zIndex: 1, mb: 5, textAlign: 'left' }}>
+          <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 1.5 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: '#1D4ED8',
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                fontSize: '0.85rem',
+                lineHeight: 1,
+              }}
+            >
+              WHAT WE DO
+            </Typography>
+            <Box sx={{ width: 36, height: 2, backgroundColor: '#1D4ED8', borderRadius: 1 }} />
+          </Stack>
+
+          <Typography
+            variant="h4"
+            sx={{
+              color: '#0B1F3A',
+              fontWeight: 800,
+              fontSize: { xs: '1.9rem', sm: '2.3rem', md: '2.6rem' },
+              letterSpacing: '-0.5px',
+              mb: 1.5,
+            }}
+          >
             Enterprise IT Services & Capabilities
           </Typography>
-          <Typography variant="body1" sx={{ color: COLORS.blue, mt: 1, maxWidth: '650px', mx: 'auto' }}>
+          <Typography
+            variant="body1"
+            sx={{
+              color: '#475569',
+              maxWidth: '650px',
+              lineHeight: 1.6,
+              fontSize: { xs: '0.95rem', md: '1.05rem' },
+            }}
+          >
             A full-spectrum portfolio of technology services enabling clients to engage us for specialized solutions or end-to-end digital delivery.
           </Typography>
         </Box>
 
-        <Grid container spacing={2.5} alignItems="stretch">
-          {servicesList.map((service) => (
-            <Grid item xs={12} sm={6} md={4} key={service.name}>
-              <Card
-                elevation={1}
-                sx={{
-                  height: 80,
-                  width: '100%',
-                  borderRadius: 2.5,
-                  transition: 'all 0.25s ease-in-out',
-                  border: '1px solid rgba(11, 31, 58, 0.08)',
-                  backgroundColor: COLORS.white,
-                  display: 'flex',
-                  alignItems: 'center',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: '0 8px 24px rgba(30, 77, 140, 0.15)',
-                    borderColor: COLORS.sky,
+        {/* 4 Cards Per Row Grid */}
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+            '@media (min-width: 768px)': {
+              gridTemplateColumns: 'repeat(4, 1fr)',
+            },
+            gap: { xs: 2.5, sm: 2.5, md: 3 },
+            alignItems: 'stretch',
+          }}
+        >
+          {servicesList.map((service, index) => (
+            <Card
+              key={service.name}
+              elevation={0}
+              sx={{
+                height: '100%',
+                minHeight: { xs: 180, sm: 205 },
+                borderRadius: '20px',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid rgba(226, 232, 240, 0.9)',
+                boxShadow: '0 4px 18px rgba(0, 0, 0, 0.03)',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                animation: 'fadeInUp 0.5s ease-out forwards',
+                animationDelay: `${index * 35}ms`,
+                '@keyframes fadeInUp': {
+                  '0%': {
+                    opacity: 0,
+                    transform: 'translateY(16px)',
                   },
+                  '100%': {
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                  },
+                },
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                '&:hover': {
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 14px 30px rgba(30, 77, 140, 0.12)',
+                  borderColor: service.color,
+                  '& .service-arrow-badge': {
+                    backgroundColor: service.color,
+                    color: '#FFFFFF',
+                    transform: 'scale(1.08)',
+                  },
+                  '& .service-arrow-badge svg': {
+                    transform: 'translateX(2px)',
+                  },
+                },
+              }}
+            >
+              {/* Bottom-right decorative corner gradient orb */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  bottom: -15,
+                  right: -15,
+                  width: 110,
+                  height: 110,
+                  borderRadius: '50%',
+                  background: service.glow,
+                  pointerEvents: 'none',
+                  zIndex: 0,
+                }}
+              />
+
+              <CardActionArea
+                onClick={() => handleNavigation('Services')}
+                sx={{
+                  p: { xs: 2.5, sm: 3 },
+                  height: '100%',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  zIndex: 1,
+                  textAlign: 'left',
                 }}
               >
-                <CardActionArea
-                  onClick={() => handleNavigation('Services')}
+                {/* Top-left Icon Box with themed background */}
+                <Box
                   sx={{
-                    px: 2.5,
-                    py: 1.5,
-                    height: '100%',
-                    width: '100%',
+                    width: 48,
+                    height: 48,
+                    borderRadius: '14px',
+                    backgroundColor: service.bg,
                     display: 'flex',
-                    flexDirection: 'row',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
+                    justifyContent: 'center',
+                    mb: 2,
+                    transition: 'all 0.3s ease',
                   }}
                 >
+                  {service.icon}
+                </Box>
+
+                {/* Title */}
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    fontWeight: 800,
+                    color: '#0B1F3A',
+                    fontSize: '1.05rem',
+                    lineHeight: 1.3,
+                    mb: 0.8,
+                    textAlign: 'left',
+                    width: '100%',
+                  }}
+                >
+                  {service.name}
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#64748B',
+                    fontSize: '0.84rem',
+                    lineHeight: 1.5,
+                    mb: 2,
+                    flexGrow: 1,
+                    textAlign: 'left',
+                    width: '100%',
+                  }}
+                >
+                  {service.desc}
+                </Typography>
+
+                {/* Bottom-right arrow button */}
+                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'flex-end', mt: 'auto' }}>
                   <Box
+                    className="service-arrow-badge"
                     sx={{
-                      p: 1.2,
-                      borderRadius: 2,
-                      backgroundColor: 'rgba(62, 146, 204, 0.12)',
-                      color: COLORS.blue,
-                      mr: 2,
+                      width: 28,
+                      height: 28,
+                      borderRadius: '50%',
+                      backgroundColor: service.bg,
+                      color: service.color,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      flexShrink: 0,
+                      transition: 'all 0.3s ease',
                     }}
                   >
-                    {service.icon}
+                    <ArrowIcon sx={{ fontSize: 16, transition: 'all 0.3s ease-in-out' }} />
                   </Box>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 700,
-                      color: COLORS.navy,
-                      flexGrow: 1,
-                      fontSize: '0.95rem',
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {service.name}
-                  </Typography>
-                  <ArrowIcon sx={{ color: COLORS.sky, fontSize: 20, flexShrink: 0, ml: 1 }} />
-                </CardActionArea>
-              </Card>
-            </Grid>
+                </Box>
+              </CardActionArea>
+            </Card>
           ))}
-        </Grid>
+        </Box>
+      </Box>
 
-        <Box textAlign="center" sx={{ mt: 4 }}>
-          <Button
-            variant="outlined"
-            onClick={() => handleNavigation('Services')}
-            endIcon={<ArrowIcon />}
+      {/* 4. INDUSTRIES PREVIEW (Exact match to target UI Image 2) */}
+      <Box
+        sx={{
+          position: 'relative',
+          mb: 10,
+          py: { xs: 4, md: 6 },
+          px: { xs: 2, sm: 4, md: 6 },
+          overflow: 'hidden',
+        }}
+      >
+        {/* Ambient background glow top right */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: -80,
+            right: -80,
+            width: { xs: 280, md: 450 },
+            height: { xs: 280, md: 450 },
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.5) 0%, rgba(224, 242, 254, 0.2) 50%, rgba(255, 255, 255, 0) 75%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Ambient background glow bottom left */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: -60,
+            left: -60,
+            width: { xs: 240, md: 380 },
+            height: { xs: 240, md: 380 },
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.4) 0%, rgba(224, 242, 254, 0.15) 50%, rgba(255, 255, 255, 0) 75%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        <Box sx={{ position: 'relative', zIndex: 1, mb: 5, textAlign: 'left' }}>
+          <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 1.5 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: '#1D4ED8',
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                fontSize: '0.85rem',
+                lineHeight: 1,
+              }}
+            >
+              SECTORS WE SERVE
+            </Typography>
+            <Box sx={{ width: 36, height: 2, backgroundColor: '#1D4ED8', borderRadius: 1 }} />
+          </Stack>
+
+          <Typography
+            variant="h4"
             sx={{
-              color: COLORS.blue,
-              borderColor: COLORS.blue,
-              fontWeight: 700,
-              px: 4,
-              py: 1.2,
-              borderRadius: 2,
-              textTransform: 'none',
-              fontSize: '1rem',
-              '&:hover': {
-                backgroundColor: COLORS.blue,
-                color: COLORS.white,
-              },
+              color: '#0B1F3A',
+              fontWeight: 800,
+              fontSize: { xs: '1.9rem', sm: '2.3rem', md: '2.6rem' },
+              letterSpacing: '-0.5px',
+              mb: 1.5,
             }}
           >
-            Explore All Services
-          </Button>
-        </Box>
-      </Container>
-
-      {/* 4. INDUSTRIES PREVIEW */}
-      <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Box textAlign="center" sx={{ mb: 5 }}>
-          <Typography variant="overline" sx={{ color: COLORS.sky, fontWeight: 700, letterSpacing: 1.5, fontSize: '0.85rem' }}>
-            SECTORS WE SERVE
-          </Typography>
-          <Typography variant="h4" sx={{ color: COLORS.navy, fontWeight: 800, mt: 0.5 }}>
             Domain Fluency Across Key Industries
           </Typography>
-          <Typography variant="body1" sx={{ color: COLORS.blue, mt: 1, maxWidth: '650px', mx: 'auto' }}>
+          <Typography
+            variant="body1"
+            sx={{
+              color: '#475569',
+              maxWidth: '600px',
+              lineHeight: 1.6,
+              fontSize: { xs: '0.95rem', md: '1.05rem' },
+            }}
+          >
             Our teams bring deep industry experience, allowing us to speak the language of your business from day one.
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
-          {industriesList.map((ind) => (
-            <Grid item xs={12} sm={6} md={3} key={ind.title}>
-              <Card
-                elevation={1}
-                sx={{
-                  height: '100%',
-                  borderRadius: 2.5,
-                  p: 3,
-                  backgroundColor: COLORS.white,
-                  border: '1px solid rgba(11, 31, 58, 0.08)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'all 0.25s ease-in-out',
-                  '&:hover': {
-                    transform: 'translateY(-4px)',
-                    boxShadow: '0 8px 24px rgba(30, 77, 140, 0.12)',
-                    borderColor: COLORS.blue,
-                  },
-                }}
-              >
-                <Box>
-                  <Box sx={{ mb: 2 }}>{ind.icon}</Box>
-                  <Typography variant="h6" sx={{ color: COLORS.navy, fontWeight: 700, mb: 1, fontSize: '1.1rem' }}>
-                    {ind.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: COLORS.blue, lineHeight: 1.6 }}>
-                    {ind.desc}
-                  </Typography>
-                </Box>
-                <Button
-                  size="small"
-                  onClick={() => handleNavigation('Industry')}
-                  endIcon={<ArrowIcon fontSize="small" />}
-                  sx={{
-                    color: COLORS.sky,
-                    fontWeight: 700,
-                    textTransform: 'none',
-                    alignSelf: 'flex-start',
-                    mt: 2,
-                    p: 0,
-                    '&:hover': {
-                      backgroundColor: 'transparent',
-                      color: COLORS.blue,
-                    },
-                  }}
-                >
-                  Learn More
-                </Button>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-
-      {/* 5. WHY CHOOSE US (3 Key Highlights) */}
-      <Container maxWidth="lg" sx={{ mb: 8 }}>
-        <Paper
-          elevation={2}
+        <Box
           sx={{
-            p: { xs: 4, md: 6 },
-            borderRadius: 3,
-            backgroundColor: COLORS.white,
-            border: `1px solid rgba(11, 31, 58, 0.08)`,
+            position: 'relative',
+            zIndex: 1,
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+            '@media (min-width: 768px)': {
+              gridTemplateColumns: 'repeat(4, 1fr)',
+            },
+            gap: { xs: 2.5, sm: 2.5, md: 3 },
+            alignItems: 'stretch',
           }}
         >
-          <Box textAlign="center" sx={{ mb: 5 }}>
-            <Typography variant="overline" sx={{ color: COLORS.sky, fontWeight: 700, letterSpacing: 1.5, fontSize: '0.85rem' }}>
-              WHY NORTHNODE ANALYTICS
-            </Typography>
-            <Typography variant="h4" sx={{ color: COLORS.navy, fontWeight: 800, mt: 0.5 }}>
-              Engineered for Speed, Scale & Trust
-            </Typography>
-          </Box>
-
-          <Grid container spacing={4}>
-            {whyChooseUsHighlights.map((highlight) => (
-              <Grid item xs={12} md={4} key={highlight.title}>
-                <Stack spacing={2} alignItems="flex-start">
-                  <Box
-                    sx={{
-                      p: 1.5,
-                      borderRadius: 2,
-                      backgroundColor: COLORS.light,
-                      display: 'inline-flex',
-                    }}
-                  >
-                    {highlight.icon}
-                  </Box>
-                  <Typography variant="h6" sx={{ color: COLORS.navy, fontWeight: 700 }}>
-                    {highlight.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: COLORS.blue, lineHeight: 1.7 }}>
-                    {highlight.desc}
-                  </Typography>
-                </Stack>
-              </Grid>
-            ))}
-          </Grid>
-
-          <Box textAlign="center" sx={{ mt: 5 }}>
-            <Button
-              variant="text"
-              onClick={() => handleNavigation('About Us')}
-              endIcon={<ArrowIcon />}
+          {industriesList.map((ind, index) => (
+            <Card
+              key={ind.title}
+              elevation={0}
               sx={{
-                color: COLORS.blue,
-                fontWeight: 700,
-                textTransform: 'none',
-                fontSize: '1rem',
+                height: '100%',
+                minHeight: { xs: 320, sm: 360 },
+                borderRadius: '24px',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid rgba(226, 232, 240, 0.9)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                animation: 'fadeInUp 0.5s ease-out forwards',
+                animationDelay: `${index * 50}ms`,
+                '@keyframes fadeInUp': {
+                  '0%': {
+                    opacity: 0,
+                    transform: 'translateY(16px)',
+                  },
+                  '100%': {
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                  },
+                },
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 '&:hover': {
-                  color: COLORS.sky,
-                  backgroundColor: 'transparent',
+                  transform: 'translateY(-6px)',
+                  boxShadow: '0 16px 36px rgba(30, 77, 140, 0.12)',
+                  borderColor: '#93C5FD',
+                  '& .sector-arrow-badge': {
+                    backgroundColor: '#2563EB',
+                    color: '#FFFFFF',
+                    transform: 'scale(1.08)',
+                  },
+                  '& .sector-arrow-badge svg': {
+                    transform: 'translateX(2px)',
+                  },
                 },
               }}
             >
-              Read Full Company Profile & Values
-            </Button>
-          </Box>
-        </Paper>
-      </Container>
+              {/* Bottom-right decorative corner gradient orb */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  bottom: -15,
+                  right: -15,
+                  width: 135,
+                  height: 135,
+                  borderRadius: '50%',
+                  background: ind.glow,
+                  pointerEvents: 'none',
+                  zIndex: 0,
+                }}
+              />
 
-      {/* 6. CTA BANNER */}
-      <Container maxWidth="lg">
-        <Paper
-          elevation={3}
+              <CardActionArea
+                onClick={() => handleNavigation('Industry')}
+                sx={{
+                  p: { xs: 3, sm: 3.5 },
+                  height: '100%',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  zIndex: 1,
+                  textAlign: 'left',
+                }}
+              >
+                {/* Top-left Icon Box with themed background */}
+                <Box
+                  sx={{
+                    width: 54,
+                    height: 54,
+                    borderRadius: '16px',
+                    backgroundColor: ind.bg,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mb: 3,
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  {ind.icon}
+                </Box>
+
+                {/* Title */}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 800,
+                    color: '#0B1F3A',
+                    fontSize: '1.22rem',
+                    lineHeight: 1.3,
+                    mb: 1.5,
+                    minHeight: '2.8em',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    textAlign: 'left',
+                  }}
+                >
+                  {ind.title}
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#64748B',
+                    fontSize: '0.88rem',
+                    lineHeight: 1.6,
+                    mb: 3,
+                    flexGrow: 1,
+                    textAlign: 'left',
+                  }}
+                >
+                  {ind.desc}
+                </Typography>
+
+                {/* Bottom Action: "Learn more" + circular arrow button */}
+                <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 'auto' }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: '#2563EB',
+                      fontWeight: 600,
+                      fontSize: '0.92rem',
+                    }}
+                  >
+                    Learn more
+                  </Typography>
+                  <Box
+                    className="sector-arrow-badge"
+                    sx={{
+                      width: 26,
+                      height: 26,
+                      borderRadius: '50%',
+                      backgroundColor: '#EBF3FE',
+                      color: '#2563EB',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    <ArrowIcon sx={{ fontSize: 16, transition: 'all 0.3s ease-in-out' }} />
+                  </Box>
+                </Stack>
+              </CardActionArea>
+            </Card>
+          ))}
+        </Box>
+      </Box>
+
+      {/* 5. WHY CHOOSE US (Exact match to target UI Screenshot Image 2) */}
+      <Box
+        sx={{
+          position: 'relative',
+          mb: 10,
+          py: { xs: 4, md: 6 },
+          px: { xs: 2, sm: 4, md: 6 },
+          overflow: 'hidden',
+        }}
+      >
+        {/* Ambient background glow top right */}
+        <Box
           sx={{
-            p: { xs: 4, md: 6 },
-            borderRadius: 3,
-            backgroundColor: COLORS.navy,
-            color: COLORS.white,
-            textAlign: 'center',
-            background: `linear-gradient(135deg, ${COLORS.navy} 0%, ${COLORS.blue} 100%)`,
+            position: 'absolute',
+            top: -80,
+            right: -80,
+            width: { xs: 280, md: 450 },
+            height: { xs: 280, md: 450 },
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.5) 0%, rgba(224, 242, 254, 0.2) 50%, rgba(255, 255, 255, 0) 75%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Ambient background glow bottom left */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: -60,
+            left: -60,
+            width: { xs: 240, md: 380 },
+            height: { xs: 240, md: 380 },
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(191, 219, 254, 0.4) 0%, rgba(224, 242, 254, 0.15) 50%, rgba(255, 255, 255, 0) 75%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Header */}
+        <Box sx={{ position: 'relative', zIndex: 1, mb: 5, textAlign: 'left' }}>
+          <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 1.5 }}>
+            <Typography
+              variant="overline"
+              sx={{
+                color: '#1D4ED8',
+                fontWeight: 700,
+                letterSpacing: 1.5,
+                fontSize: '0.85rem',
+                lineHeight: 1,
+              }}
+            >
+              WHY NORTHNODE ANALYTICS
+            </Typography>
+            <Box sx={{ width: 36, height: 2, backgroundColor: '#1D4ED8', borderRadius: 1 }} />
+          </Stack>
+
+          <Typography
+            variant="h4"
+            sx={{
+              color: '#0B1F3A',
+              fontWeight: 800,
+              fontSize: { xs: '1.9rem', sm: '2.3rem', md: '2.6rem' },
+              letterSpacing: '-0.5px',
+            }}
+          >
+            Engineered for Speed, Scale & Trust
+          </Typography>
+        </Box>
+
+        {/* 3 Cards in 1 Row */}
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(3, 1fr)',
+              md: 'repeat(3, 1fr)',
+            },
+            '@media (min-width: 768px)': {
+              gridTemplateColumns: 'repeat(3, 1fr)',
+            },
+            gap: { xs: 2.5, sm: 2.5, md: 3 },
+            alignItems: 'stretch',
           }}
         >
-          <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>
-            Let’s Build Something Intelligent Together
+          {whyChooseUsHighlights.map((highlight, index) => (
+            <Card
+              key={highlight.title}
+              elevation={0}
+              sx={{
+                height: '100%',
+                minHeight: { xs: 280, sm: 320 },
+                borderRadius: '24px',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid rgba(226, 232, 240, 0.9)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                animation: 'fadeInUp 0.5s ease-out forwards',
+                animationDelay: `${index * 50}ms`,
+                '@keyframes fadeInUp': {
+                  '0%': {
+                    opacity: 0,
+                    transform: 'translateY(16px)',
+                  },
+                  '100%': {
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                  },
+                },
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                '&:hover': {
+                  transform: 'translateY(-6px)',
+                  boxShadow: '0 16px 36px rgba(30, 77, 140, 0.12)',
+                  borderColor: '#93C5FD',
+                  '& .why-arrow-badge': {
+                    backgroundColor: '#2563EB',
+                    color: '#FFFFFF',
+                    transform: 'scale(1.08)',
+                  },
+                  '& .why-arrow-badge svg': {
+                    transform: 'translateX(2px)',
+                  },
+                },
+              }}
+            >
+              {/* Bottom-right decorative corner gradient orb */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  bottom: -15,
+                  right: -15,
+                  width: 130,
+                  height: 130,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle at 100% 100%, rgba(191, 219, 254, 0.6) 0%, rgba(224, 242, 254, 0.25) 50%, rgba(255, 255, 255, 0) 75%)',
+                  pointerEvents: 'none',
+                  zIndex: 0,
+                }}
+              />
+
+              <CardActionArea
+                onClick={() => handleNavigation('About Us')}
+                sx={{
+                  p: { xs: 3, sm: 3.5 },
+                  height: '100%',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  zIndex: 1,
+                  textAlign: 'left',
+                }}
+              >
+                {/* Top-left Icon Box with themed background */}
+                <Box
+                  sx={{
+                    width: 54,
+                    height: 54,
+                    borderRadius: '16px',
+                    backgroundColor: '#EBF3FE',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mb: 3,
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  {highlight.icon}
+                </Box>
+
+                {/* Title */}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 800,
+                    color: '#0B1F3A',
+                    fontSize: '1.25rem',
+                    lineHeight: 1.3,
+                    mb: 1.5,
+                    textAlign: 'left',
+                    width: '100%',
+                  }}
+                >
+                  {highlight.title}
+                </Typography>
+
+                {/* Description */}
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: '#64748B',
+                    fontSize: '0.9rem',
+                    lineHeight: 1.6,
+                    mb: 3,
+                    flexGrow: 1,
+                    textAlign: 'left',
+                    width: '100%',
+                  }}
+                >
+                  {highlight.desc}
+                </Typography>
+
+                {/* Bottom-left arrow button */}
+                <Box
+                  className="why-arrow-badge"
+                  sx={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: '50%',
+                    backgroundColor: '#EBF3FE',
+                    color: '#2563EB',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mt: 'auto',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <ArrowIcon sx={{ fontSize: 16, transition: 'all 0.3s ease-in-out' }} />
+                </Box>
+              </CardActionArea>
+            </Card>
+          ))}
+        </Box>
+
+        {/* Read Full Company Profile & Values link */}
+        <Box sx={{ position: 'relative', zIndex: 1, mt: 4, textAlign: 'left' }}>
+          <Button
+            variant="text"
+            onClick={() => handleNavigation('About Us')}
+            sx={{
+              p: 0,
+              color: '#2563EB',
+              fontWeight: 700,
+              textTransform: 'none',
+              fontSize: '0.96rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
+              '&:hover': {
+                backgroundColor: 'transparent',
+                color: '#1D4ED8',
+                '& svg': {
+                  transform: 'translateX(4px)',
+                },
+              },
+            }}
+          >
+            Read Full Company Profile & Values
+            <ArrowIcon sx={{ fontSize: 18, transition: 'transform 0.2s ease' }} />
+          </Button>
+        </Box>
+      </Box>
+
+      {/* 6. CTA BANNER */}
+      <Container maxWidth="lg" sx={{ mt: { xs: 5, md: 7 }, mb: { xs: 2, md: 3 } }}>
+        <Paper
+          elevation={0}
+          sx={{
+            position: 'relative',
+            borderRadius: { xs: 3, md: '20px' },
+            overflow: 'hidden',
+            backgroundColor: '#05142E',
+            backgroundImage: `url(${contactUsBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            border: '1px solid rgba(59, 130, 246, 0.18)',
+            boxShadow: '0 16px 40px -10px rgba(6, 27, 55, 0.25)',
+            py: { xs: 4.5, sm: 5, md: 5.5 },
+            px: { xs: 2.5, sm: 4, md: 6 },
+            textAlign: 'center',
+          }}
+        >
+          {/* Eyebrow / Tagline */}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            spacing={1.5}
+            sx={{ mb: 1.8 }}
+          >
+            <Box
+              sx={{
+                width: { xs: 24, sm: 30 },
+                height: '1.5px',
+                backgroundColor: '#2B8DFE',
+                opacity: 0.85,
+              }}
+            />
+            <Typography
+              variant="caption"
+              sx={{
+                color: '#2B8DFE',
+                fontWeight: 700,
+                letterSpacing: '0.14em',
+                fontSize: { xs: '0.68rem', sm: '0.74rem' },
+                textTransform: 'uppercase',
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
+              LET’S BUILD TOGETHER
+            </Typography>
+            <Box
+              sx={{
+                width: { xs: 24, sm: 30 },
+                height: '1.5px',
+                backgroundColor: '#2B8DFE',
+                opacity: 0.85,
+              }}
+            />
+          </Stack>
+
+          {/* Heading */}
+          <Typography
+            variant="h4"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              color: '#FFFFFF',
+              fontSize: { xs: '1.5rem', sm: '1.85rem', md: '2.1rem' },
+              letterSpacing: '-0.015em',
+              lineHeight: 1.25,
+              mb: 1.5,
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
+            Let’s Build Something{' '}
+            <Box
+              component="span"
+              sx={{
+                color: '#2B8DFE',
+              }}
+            >
+              Intelligent Together
+            </Box>
           </Typography>
-          <Typography variant="body1" sx={{ color: COLORS.sky, mb: 4, maxWidth: '650px', mx: 'auto', fontSize: '1.1rem' }}>
+
+          {/* Subtitle */}
+          <Typography
+            variant="body1"
+            sx={{
+              color: '#94A3B8',
+              fontSize: { xs: '0.86rem', sm: '0.92rem' },
+              lineHeight: 1.55,
+              maxWidth: '480px',
+              mx: 'auto',
+              mb: { xs: 3, md: 3.5 },
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
             Reach out to discuss how NorthNode Analytics can support your next digital initiative.
           </Typography>
+
+          {/* Action Button */}
           <Button
             variant="contained"
-            size="large"
             onClick={() => handleNavigation('Contact Us')}
             sx={{
-              backgroundColor: COLORS.sky,
-              color: COLORS.navy,
-              fontWeight: 700,
-              px: 5,
-              py: 1.5,
-              borderRadius: 2,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 1,
+              px: { xs: 3, sm: 3.5 },
+              py: { xs: 1, sm: 1.15 },
+              borderRadius: '50px',
+              background: 'linear-gradient(135deg, #1E70FD 0%, #298DFE 50%, #389EFE 100%)',
+              color: '#FFFFFF',
+              fontWeight: 600,
+              fontSize: { xs: '0.86rem', sm: '0.9rem' },
               textTransform: 'none',
-              fontSize: '1.05rem',
-              boxShadow: '0 4px 14px rgba(62, 146, 204, 0.4)',
+              boxShadow: '0 4px 18px rgba(36, 137, 253, 0.45)',
+              transition: 'all 0.25s ease',
               '&:hover': {
-                backgroundColor: COLORS.white,
-                color: COLORS.blue,
+                background: 'linear-gradient(135deg, #257DFF 0%, #389BFF 100%)',
+                boxShadow: '0 6px 24px rgba(36, 137, 253, 0.65)',
+                transform: 'translateY(-1px)',
+                '& svg': {
+                  transform: 'translateX(3px)',
+                },
               },
             }}
           >
             Contact Us
+            <Box
+              component="svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              sx={{ transition: 'transform 0.2s ease', ml: 0.5 }}
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </Box>
           </Button>
         </Paper>
       </Container>
