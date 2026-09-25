@@ -12,7 +12,7 @@ import {
   Container,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import companyLogo from '../../assets/logo_transparent.png';
+import  companyLogo from '../../assets/logo_transparent.png';
 
 const navItems = [
   {
