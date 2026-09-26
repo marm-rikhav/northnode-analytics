@@ -149,7 +149,6 @@ const IndustryComponent = ({ onNavigate }) => {
                 >
                   SECTOR-SPECIFIC EXPERIENCE
                 </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#3E92CC', borderRadius: 1 }} />
               </Stack>
               <Typography
                 variant="h2"
@@ -352,44 +351,6 @@ const IndustryComponent = ({ onNavigate }) => {
             textAlign: 'center',
           }}
         >
-          {/* Eyebrow / Tagline */}
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            spacing={1.5}
-            sx={{ mb: 2 }}
-          >
-            <Box
-              sx={{
-                width: { xs: 24, sm: 30 },
-                height: '1.5px',
-                backgroundColor: '#3E92CC',
-                opacity: 0.85,
-              }}
-            />
-            <Typography
-              variant="caption"
-              sx={{
-                color: '#3E92CC',
-                fontWeight: 700,
-                letterSpacing: '0.14em',
-                fontSize: { xs: '0.72rem', sm: '0.8rem' },
-                textTransform: 'uppercase',
-              }}
-            >
-              LET’S BUILD TOGETHER
-            </Typography>
-            <Box
-              sx={{
-                width: { xs: 24, sm: 30 },
-                height: '1.5px',
-                backgroundColor: '#3E92CC',
-                opacity: 0.85,
-              }}
-            />
-          </Stack>
-
           {/* Main Heading */}
           <Typography
             variant="h3"
