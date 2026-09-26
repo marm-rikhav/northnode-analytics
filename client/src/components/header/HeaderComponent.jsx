@@ -185,7 +185,6 @@ const HeaderComponent = ({ onSelectTab }) => {
               src={companyLogo}
               alt="NorthNode Analytics"
               sx={{
-                // height: { xs: 48, sm: 46, md: 50 },
                 height: { xs: 48, sm: 54, md: 64 },
                 width: 'auto',
                 display: 'block',
@@ -533,7 +532,7 @@ const HeaderComponent = ({ onSelectTab }) => {
 };
 
 HeaderComponent.propTypes = {
-  activeTab: PropTypes.string,
+ 
   onSelectTab: PropTypes.func,
 };
 
