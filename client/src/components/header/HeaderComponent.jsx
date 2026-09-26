@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -12,12 +13,13 @@ import {
   Container,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import  companyLogo from '../../assets/logo_transparent.png';
+import companyLogo from '../../assets/logo_transparent.png';
+import { ROUTES } from '../../constants/routes';
 
 const navItems = [
   {
     label: 'Home',
-    href: '#home',
+    path: ROUTES.HOME,
     icon: (
       <Box
         component="svg"
@@ -37,7 +39,7 @@ const navItems = [
   },
   {
     label: 'About Us',
-    href: '#about',
+    path: ROUTES.ABOUT_US,
     icon: (
       <Box
         component="svg"
@@ -59,7 +61,7 @@ const navItems = [
   },
   {
     label: 'Services',
-    href: '#services',
+    path: ROUTES.SERVICES,
     icon: (
       <Box
         component="svg"
@@ -79,7 +81,7 @@ const navItems = [
   },
   {
     label: 'Industry',
-    href: '#industry',
+    path: ROUTES.INDUSTRY,
     icon: (
       <Box
         component="svg"
@@ -97,25 +99,43 @@ const navItems = [
       </Box>
     ),
   },
-  { label: 'Contact Us', href: '#contact', isCta: true },
+  { label: 'Contact Us', path: ROUTES.CONTACT_US, isCta: true },
 ];
 
-const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
+const HeaderComponent = ({ onSelectTab }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [internalActiveTab, setInternalActiveTab] = useState('Home');
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const activeTab = externalActiveTab ?? internalActiveTab;
+  const isItemActive = (path) => {
+    if (path === ROUTES.HOME) {
+      return location.pathname === ROUTES.HOME;
+    }
+    if (path === ROUTES.ABOUT_US) {
+      return location.pathname === ROUTES.ABOUT_US || location.pathname === '/about';
+    }
+    if (path === ROUTES.SERVICES) {
+      return location.pathname === ROUTES.SERVICES;
+    }
+    if (path === ROUTES.INDUSTRY) {
+      return location.pathname === ROUTES.INDUSTRY;
+    }
+    if (path === ROUTES.CONTACT_US) {
+      return location.pathname === ROUTES.CONTACT_US || location.pathname === '/contact';
+    }
+    return location.pathname === path;
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const handleNavClick = (label) => {
+  const handleNavClick = (path) => {
     if (onSelectTab) {
-      onSelectTab(label);
-    } else {
-      setInternalActiveTab(label);
+      const match = navItems.find((i) => i.path === path);
+      if (match) onSelectTab(match.label);
     }
+    navigate(path);
     if (mobileOpen) {
       setMobileOpen(false);
     }
@@ -151,12 +171,14 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
         >
           {/* Logo */}
           <Box
+            component={Link}
+            to={ROUTES.HOME}
             sx={{
               display: 'flex',
               alignItems: 'center',
               cursor: 'pointer',
+              textDecoration: 'none',
             }}
-            onClick={() => handleNavClick('Home')}
           >
             <Box
               component="img"
@@ -181,11 +203,12 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
             {navItems
               .filter((i) => !i.isCta)
               .map((item) => {
-                const isActive = activeTab === item.label;
+                const isActive = isItemActive(item.path);
                 return (
                   <Box
                     key={item.label}
-                    onClick={() => handleNavClick(item.label)}
+                    component={Link}
+                    to={item.path}
                     sx={{
                       color: isActive ? '#1E4D8C' : '#0B1F3A',
                       fontWeight: isActive ? 600 : 500,
@@ -193,6 +216,7 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
                       cursor: 'pointer',
                       position: 'relative',
                       py: 1,
+                      textDecoration: 'none',
                       transition: 'color 0.2s ease',
                       '&:hover': {
                         color: '#1E4D8C',
@@ -222,9 +246,10 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
 
             {/* Desktop Primary CTA Button */}
             <Button
+              component={Link}
+              to={ROUTES.CONTACT_US}
               variant="contained"
               disableElevation
-              onClick={() => handleNavClick('Contact Us')}
               sx={{
                 ml: 1.5,
                 borderRadius: '50px',
@@ -233,6 +258,7 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
                 fontWeight: 600,
                 fontSize: '0.9rem',
                 textTransform: 'none',
+                textDecoration: 'none',
                 px: 3.2,
                 py: 1,
                 boxShadow: '0 4px 14px rgba(30, 77, 140, 0.25)',
@@ -336,18 +362,24 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
           }}
         >
           <Box
-            component="img"
-            src={companyLogo}
-            alt="NorthNode Analytics"
-            sx={{
-              height: 54,
-              width: 'auto',
-              display: 'block',
-              objectFit: 'contain',
-              cursor: 'pointer',
-            }}
-            onClick={() => handleNavClick('Home')}
-          />
+            component={Link}
+            to={ROUTES.HOME}
+            onClick={() => setMobileOpen(false)}
+            sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+          >
+            <Box
+              component="img"
+              src={companyLogo}
+              alt="NorthNode Analytics"
+              sx={{
+                height: 54,
+                width: 'auto',
+                display: 'block',
+                objectFit: 'contain',
+                cursor: 'pointer',
+              }}
+            />
+          </Box>
           <IconButton
             onClick={handleDrawerToggle}
             sx={{
@@ -381,11 +413,13 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
           {navItems
             .filter((i) => !i.isCta)
             .map((item) => {
-              const isActive = activeTab === item.label;
+              const isActive = isItemActive(item.path);
               return (
                 <ListItem key={item.label} disablePadding sx={{ mb: 1.2 }}>
                   <ListItemButton
-                    onClick={() => handleNavClick(item.label)}
+                    component={Link}
+                    to={item.path}
+                    onClick={() => handleNavClick(item.path)}
                     sx={{
                       px: 2,
                       py: 1.2,
@@ -393,6 +427,7 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
                       position: 'relative',
                       backgroundColor: isActive ? 'rgba(30, 77, 140, 0.08)' : 'transparent',
                       color: isActive ? '#1E4D8C' : '#0B1F3A',
+                      textDecoration: 'none',
                       transition: 'all 0.2s ease',
                       '&:hover': {
                         backgroundColor: isActive ? 'rgba(30, 77, 140, 0.12)' : '#F2F5F9',
@@ -447,9 +482,11 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
         <Box sx={{ mt: 'auto', pt: 2 }}>
           <Button
             fullWidth
+            component={Link}
+            to={ROUTES.CONTACT_US}
             variant="contained"
             disableElevation
-            onClick={() => handleNavClick('Contact Us')}
+            onClick={() => handleNavClick(ROUTES.CONTACT_US)}
             sx={{
               borderRadius: '50px',
               backgroundColor: '#1E4D8C',
@@ -457,6 +494,7 @@ const HeaderComponent = ({ activeTab: externalActiveTab, onSelectTab }) => {
               fontWeight: 600,
               fontSize: '0.92rem',
               textTransform: 'none',
+              textDecoration: 'none',
               py: 1.3,
               boxShadow: '0 4px 14px rgba(30, 77, 140, 0.25)',
               display: 'flex',

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -14,19 +15,21 @@ import {
   LinkedIn as LinkedInIcon,
 } from '@mui/icons-material';
 import companyLogo from '../../assets/logo_transparent.png';
+import { ROUTES } from '../../constants/routes';
 
 const navLinks = [
-  { label: 'Home', name: 'Home' },
-  { label: 'About Us', name: 'About Us' },
-  { label: 'Services', name: 'Services' },
-  { label: 'Industry', name: 'Industry' },
-  { label: 'Contact Us', name: 'Contact Us' },
+  { label: 'Home', path: ROUTES.HOME },
+  { label: 'About Us', path: ROUTES.ABOUT_US },
+  { label: 'Services', path: ROUTES.SERVICES },
+  { label: 'Industry', path: ROUTES.INDUSTRY },
+  { label: 'Contact Us', path: ROUTES.CONTACT_US },
 ];
 
 const FooterComponent = ({ onNavigate }) => {
-  const handleNavClick = (pageName) => {
+  const handleNavClick = (path) => {
     if (onNavigate) {
-      onNavigate(pageName);
+      const match = navLinks.find((i) => i.path === path);
+      onNavigate(match ? match.label : path);
     }
   };
 
@@ -66,6 +69,8 @@ const FooterComponent = ({ onNavigate }) => {
             <Stack spacing={2} alignItems="flex-start">
               {/* Clean White Container for Dark Logo */}
               <Box
+                component={RouterLink}
+                to={ROUTES.HOME}
                 sx={{
                   width: 54,
                   height: 54,
@@ -77,6 +82,11 @@ const FooterComponent = ({ onNavigate }) => {
                   p: 0.8,
                   boxShadow: '0 4px 14px rgba(0, 0, 0, 0.18)',
                   border: '1px solid rgba(255, 255, 255, 0.2)',
+                  textDecoration: 'none',
+                  transition: 'transform 0.2s ease',
+                  '&:hover': {
+                    transform: 'scale(1.04)',
+                  },
                 }}
               >
                 <Box
@@ -139,8 +149,10 @@ const FooterComponent = ({ onNavigate }) => {
             <Stack spacing={1.6}>
               {navLinks.map((link) => (
                 <Box
-                  key={link.name}
-                  onClick={() => handleNavClick(link.name)}
+                  key={link.path}
+                  component={RouterLink}
+                  to={link.path}
+                  onClick={() => handleNavClick(link.path)}
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -148,6 +160,7 @@ const FooterComponent = ({ onNavigate }) => {
                     maxWidth: { xs: 165, sm: 155, md: 175 },
                     cursor: 'pointer',
                     color: '#FFFFFF',
+                    textDecoration: 'none',
                     fontSize: { xs: '0.92rem', sm: '0.86rem', md: '0.92rem' },
                     fontWeight: 500,
                     transition: 'all 0.2s ease',
@@ -162,7 +175,6 @@ const FooterComponent = ({ onNavigate }) => {
                   }}
                 >
                   <span>{link.label}</span>
-                 
                 </Box>
               ))}
             </Stack>

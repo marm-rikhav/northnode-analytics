@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -10,6 +10,7 @@ import {
   Stack,
   Divider
 } from '@mui/material';
+import { ROUTE_MAP } from '../../constants/routes';
 import {
   Handshake as IntegrityIcon,
   Engineering as EngineeringIcon,
@@ -79,7 +80,7 @@ const corporateSnapshot = [
 const companyProfileDetails = [
   { label: 'Company Type', value: 'Private, Federally Incorporated (Canada)' },
   { label: 'Registered Office', value: 'Toronto, Ontario, Canada' },
-  { label: 'Head Office Address', value: '121 King Street West, Suite 1900, Toronto, Ontario M5H 3T9, Canada' },
+  { label: 'Head Office', value: '121 King Street West, Suite 1900, Toronto, Ontario M5H 3T9, Canada' },
   { label: 'Service Regions', value: 'Canada, United States, United Kingdom, EU, APAC' },
   { label: 'Core Competencies', value: 'Software Engineering, Cloud, Data & AI, Cybersecurity' },
   { label: 'Engagement Types', value: 'Fixed-Scope Projects, Managed Teams, Staff Augmentation, Retainers' },
@@ -119,10 +120,14 @@ const whyChooseBenefits = [
 ];
 
 const AboutUsComponent = ({ onNavigate }) => {
+  const navigate = useNavigate();
+
   const handleNavigation = (pageName) => {
     if (onNavigate) {
       onNavigate(pageName);
     }
+    const targetPath = ROUTE_MAP[pageName] || pageName;
+    navigate(targetPath);
   };
 
   const renderSnapshotValue = (label, value) => {
@@ -805,13 +810,24 @@ const AboutUsComponent = ({ onNavigate }) => {
         component="section"
         sx={{
           pb: { xs: '48px', sm: '56px', md: '64px', lg: '80px' },
-          px: { xs: '20px', sm: '36px', md: '48px', lg: '80px', xl: '96px' },
+          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
-          <Box
+          <Paper
+            elevation={0}
             sx={{
-              display: 'grid',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '24px',
+              border: '1px solid #D9E5F2',
+              boxShadow: '0 4px 24px rgba(11, 31, 58, 0.04)',
+              p: { xs: '24px', sm: '32px', md: '40px 44px' },
+              position: 'relative',
+            }}
+          >
+            <Box
+              sx={{
+                display: 'grid',
               gridTemplateColumns: {
                 xs: '1fr',
                 md: 'repeat(2, 1fr)',
@@ -828,7 +844,7 @@ const AboutUsComponent = ({ onNavigate }) => {
                 borderRadius: '16px',
                 border: '1px solid #D6E2F0',
                 boxShadow: '0 4px 20px rgba(11, 31, 58, 0.04)',
-                p: { xs: '20px', sm: '28px', md: '32px' },
+                p: { xs: '20px', sm: '26px', md: '28px 30px' },
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
@@ -846,91 +862,95 @@ const AboutUsComponent = ({ onNavigate }) => {
                 sx={{
                   color: '#0B1F3A',
                   fontWeight: 800,
-                  fontSize: { xs: '1.4rem', sm: '1.6rem', md: '1.75rem' },
+                  fontSize: { xs: '1.35rem', sm: '1.5rem', md: '1.65rem' },
                   letterSpacing: '-0.02em',
                   lineHeight: 1.25,
-                  mb: { xs: 2.5, md: 3 },
+                  mb: { xs: 2, md: 2.25 },
                 }}
               >
                 Company Profile & Legitimacy
               </Typography>
 
-              {/* Information Table with Alternating Rows */}
+              {/* Compact Information Blocks Grid */}
               <Box
                 sx={{
-                  border: '1px solid #D6E2F0',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  backgroundColor: '#FFFFFF',
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+                  gap: { xs: '8px', sm: '10px' },
                   flex: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
                 }}
               >
-                {companyProfileDetails.map((row, idx) => (
-                  <Box
-                    key={row.label}
-                    sx={{
-                      display: 'flex',
-                      flexDirection: { xs: 'column', sm: 'row' },
-                      backgroundColor: idx % 2 === 0 ? '#FFFFFF' : '#F2F5F9',
-                      borderBottom: idx !== companyProfileDetails.length - 1 ? '1px solid #D6E2F0' : 'none',
-                      alignItems: { xs: 'stretch', sm: 'center' },
-                      flex: 1,
-                    }}
-                  >
-                    {/* Label Column */}
+                {companyProfileDetails.map((item) => {
+                  const isFullWidth = item.label === 'Core Competencies' || item.label === 'Engagement Types';
+                  return (
                     <Box
+                      key={item.label}
                       sx={{
-                        width: { xs: '100%', sm: '38%', md: '35%' },
-                        color: '#0B1F3A',
-                        fontWeight: 600,
-                        fontSize: { xs: '0.85rem', sm: '0.88rem' },
-                        p: { xs: '9px 12px 3px', sm: '10px 14px' },
-                        borderRight: { xs: 'none', sm: '1px solid #D6E2F0' },
-                        flexShrink: 0,
+                        gridColumn: isFullWidth ? { xs: 'span 1', sm: 'span 2' } : 'span 1',
+                        backgroundColor: '#F8FAFC',
+                        border: '1px solid #D6E2F0',
+                        borderRadius: '8px',
+                        p: { xs: '9px 12px', sm: '10px 14px' },
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          backgroundColor: '#FFFFFF',
+                          borderColor: '#3E92CC',
+                        },
                       }}
                     >
-                      {row.label}
-                    </Box>
-
-                    {/* Value Column */}
-                    <Box
-                      sx={{
-                        flex: 1,
-                        color: '#1E4D8C',
-                        fontWeight: 500,
-                        fontSize: { xs: '0.85rem', sm: '0.88rem' },
-                        lineHeight: 1.5,
-                        p: { xs: '3px 12px 9px', sm: '10px 14px' },
-                        wordBreak: 'break-word',
-                      }}
-                    >
-                      {row.label === 'Website' ? (
+                      <Typography
+                        sx={{
+                          color: '#0B1F3A',
+                          fontWeight: 700,
+                          fontSize: '0.72rem',
+                          letterSpacing: '0.05em',
+                          textTransform: 'uppercase',
+                          lineHeight: 1.2,
+                          mb: 0.35,
+                        }}
+                      >
+                        {item.label}
+                      </Typography>
+                      {item.label === 'Website' ? (
                         <Box
                           component="a"
-                          href={`https://${row.value}`}
+                          href={`https://${item.value}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           sx={{
                             color: '#1E4D8C',
                             textDecoration: 'none',
                             fontWeight: 600,
+                            fontSize: '0.85rem',
+                            lineHeight: 1.35,
+                            wordBreak: 'break-word',
                             '&:hover': {
                               color: '#3E92CC',
                               textDecoration: 'underline',
                             },
                           }}
                         >
-                          {row.value}
+                          {item.value}
                         </Box>
                       ) : (
-                        row.value
+                        <Typography
+                          sx={{
+                            color: '#1E4D8C',
+                            fontWeight: 500,
+                            fontSize: '0.85rem',
+                            lineHeight: 1.35,
+                            wordBreak: 'break-word',
+                          }}
+                        >
+                          {item.value}
+                        </Typography>
                       )}
                     </Box>
-                  </Box>
-                ))}
+                  );
+                })}
               </Box>
             </Card>
 
@@ -991,8 +1011,9 @@ const AboutUsComponent = ({ onNavigate }) => {
               </Typography>
             </Card>
           </Box>
-        </Container>
-      </Box>
+        </Paper>
+      </Container>
+    </Box>
 
       {/* 8. WHY CHOOSE NORTHNODE ANALYTICS */}
       <Box

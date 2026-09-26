@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -19,6 +20,7 @@ import {
   ArrowForward as ArrowIcon,
 } from '@mui/icons-material';
 import coverPageBg from './homeassests/coverpage.png';
+import { ROUTE_MAP } from '../../constants/routes';
 
 const COLORS = {
   navy: '#0B1F3A',
@@ -129,10 +131,14 @@ const whyChooseUsHighlights = [
 ];
 
 const HomeComponent = ({ onNavigate }) => {
+  const navigate = useNavigate();
+
   const handleNavigation = (pageName) => {
     if (onNavigate) {
       onNavigate(pageName);
     }
+    const targetPath = ROUTE_MAP[pageName] || pageName;
+    navigate(targetPath);
   };
 
   return (
@@ -864,6 +870,37 @@ const HomeComponent = ({ onNavigate }) => {
                   </CardActionArea>
                 </Card>
               ))}
+            </Box>
+
+            {/* Explore Sectors Button */}
+            <Box sx={{ textAlign: 'center', mt: { xs: 4, md: 5 } }}>
+              <Button
+                variant="contained"
+                onClick={() => handleNavigation('Industry')}
+                endIcon={<ArrowIcon sx={{ fontSize: 18, transition: 'transform 0.2s ease' }} />}
+                sx={{
+                  backgroundColor: '#1E4D8C',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: { xs: '0.95rem', md: '1.025rem' },
+                  textTransform: 'none',
+                  px: { xs: 3.5, md: 4.5 },
+                  py: 1.4,
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 14px rgba(30, 77, 140, 0.25)',
+                  transition: 'all 0.25s ease',
+                  '&:hover': {
+                    backgroundColor: '#163E72',
+                    boxShadow: '0 6px 20px rgba(30, 77, 140, 0.35)',
+                    transform: 'translateY(-2px)',
+                    '& svg': {
+                      transform: 'translateX(3px)',
+                    },
+                  },
+                }}
+              >
+                Explore Sectors
+              </Button>
             </Box>
           </Paper>
         </Container>
