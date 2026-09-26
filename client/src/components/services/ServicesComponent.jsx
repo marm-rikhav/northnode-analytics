@@ -233,7 +233,7 @@ const ServicesComponent = ({ onNavigate }) => {
         sx={{
           backgroundColor: '#F2F5F9',
           py: { xs: '48px', sm: '56px', md: '64px', lg: '80px' },
-          px: { xs: '20px', sm: '36px', md: '48px', lg: '80px', xl: '96px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -431,7 +431,7 @@ const ServicesComponent = ({ onNavigate }) => {
         sx={{
           backgroundColor: '#F2F5F9',
           pb: { xs: '48px', sm: '56px', md: '64px', lg: '80px' },
-          px: { xs: '20px', sm: '36px', md: '48px', lg: '80px', xl: '96px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -724,7 +724,7 @@ const ServicesComponent = ({ onNavigate }) => {
         sx={{
           backgroundColor: '#F2F5F9',
           pb: { xs: '48px', sm: '56px', md: '64px', lg: '80px' },
-          px: { xs: '20px', sm: '36px', md: '48px', lg: '80px', xl: '96px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -1031,7 +1031,7 @@ const ServicesComponent = ({ onNavigate }) => {
         sx={{
           backgroundColor: '#F2F5F9',
           pb: { xs: '56px', sm: '64px', md: '72px', lg: '88px' },
-          px: { xs: '20px', sm: '36px', md: '48px', lg: '80px', xl: '96px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
