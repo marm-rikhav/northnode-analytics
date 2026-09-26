@@ -98,51 +98,55 @@ const inputSx = {
   },
 };
 
-const validateField = (name, value) => {
-  const trimmed = value.trim();
+// Safe, linear-time regex (no polynomial backtracking)
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
 
-  switch (name) {
-    case 'name':
-      if (!trimmed) {
-        return 'Full name is required';
-      }
-      if (trimmed.length < 3 || trimmed.length > 12) {
-        return 'Full name must be between 3 and 12 characters';
-      }
-      return '';
-
-    case 'email':
-      if (!trimmed) {
-        return 'Work email is required';
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
-        return 'Please enter a valid work email address';
-      }
-      return '';
-
-    case 'subject':
-      if (trimmed && (trimmed.length < 3 || trimmed.length > 50)) {
-        return 'Subject must be between 3 and 50 characters';
-      }
-      return '';
-
-    case 'message': {
-      if (!trimmed) {
-        return 'Message is required';
-      }
-      const words = trimmed.split(/\s+/).filter(Boolean);
-      if (words.length < 5) {
-        return `Message must contain at least 5 words (currently ${words.length})`;
-      }
-      if (words.length > 150) {
-        return `Message cannot exceed 150 words (currently ${words.length})`;
-      }
-      return '';
+const validators = {
+  name: (trimmed) => {
+    if (!trimmed) {
+      return 'Full name is required';
     }
+    if (trimmed.length < 3 || trimmed.length > 12) {
+      return 'Full name must be between 3 and 12 characters';
+    }
+    return '';
+  },
 
-    default:
-      return '';
-  }
+  email: (trimmed) => {
+    if (!trimmed) {
+      return 'Work email is required';
+    }
+    if (!EMAIL_REGEX.test(trimmed)) {
+      return 'Please enter a valid work email address';
+    }
+    return '';
+  },
+
+  subject: (trimmed) => {
+    if (trimmed && (trimmed.length < 3 || trimmed.length > 50)) {
+      return 'Subject must be between 3 and 50 characters';
+    }
+    return '';
+  },
+
+  message: (trimmed) => {
+    if (!trimmed) {
+      return 'Message is required';
+    }
+    const words = trimmed.split(/\s+/).filter(Boolean);
+    if (words.length < 5) {
+      return `Message must contain at least 5 words (currently ${words.length})`;
+    }
+    if (words.length > 150) {
+      return `Message cannot exceed 150 words (currently ${words.length})`;
+    }
+    return '';
+  },
+};
+
+const validateField = (name, value) => {
+  const validator = validators[name];
+  return validator ? validator(value.trim()) : '';
 };
 
 const ContactUsComponent = () => {
@@ -192,7 +196,7 @@ const ContactUsComponent = () => {
   };
 
   const isNameValid = formData.name.trim().length >= 3 && formData.name.trim().length <= 12;
-  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim());
+  const isEmailValid = EMAIL_REGEX.test(formData.email.trim());
   const isSubjectValid = formData.subject.trim().length === 0 || (formData.subject.trim().length >= 3 && formData.subject.trim().length <= 50);
   const messageWordCount = formData.message.trim().split(/\s+/).filter(Boolean).length;
   const isMessageValid = messageWordCount >= 5 && messageWordCount <= 150;
