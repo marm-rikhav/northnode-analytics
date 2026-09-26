@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HeaderPage from './pages/header/HeaderPage';
 import HomePage from './pages/home/HomePage';
 import AboutUsPage from './pages/aboutus/AboutUsPage';
@@ -6,6 +6,8 @@ import ServicesPage from './pages/services/ServicesPage';
 import IndustryPage from './pages/industry/IndustryPage';
 import ContactUsPage from './pages/contactus/ContactUsPage';
 import FooterPage from './pages/footer/FooterPage';
+import ScrollToTop from './components/common/ScrollToTop';
+import { ROUTES } from './constants/routes';
 import { CssBaseline, ThemeProvider, createTheme, Box } from '@mui/material';
 
 const theme = createTheme({
@@ -29,34 +31,25 @@ const theme = createTheme({
 });
 
 function App() {
-  const [activePage, setActivePage] = useState('Home');
-
-  const renderPage = () => {
-    switch (activePage) {
-      case 'Home':
-        return <HomePage onNavigate={setActivePage} />;
-      case 'About Us':
-        return <AboutUsPage onNavigate={setActivePage} />;
-      case 'Services':
-        return <ServicesPage onNavigate={setActivePage} />;
-      case 'Industry':
-        return <IndustryPage onNavigate={setActivePage} />;
-      case 'Contact Us':
-        return <ContactUsPage onNavigate={setActivePage} />;
-      default:
-        return <HomePage onNavigate={setActivePage} />;
-    }
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ScrollToTop />
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#F2F5F9' }}>
-        <HeaderPage activeTab={activePage} onSelectTab={setActivePage} />
+        <HeaderPage />
         <Box component="main" sx={{ flexGrow: 1 }}>
-          {renderPage()}
+          <Routes>
+            <Route path={ROUTES.HOME} element={<HomePage />} />
+            <Route path={ROUTES.SERVICES} element={<ServicesPage />} />
+            <Route path={ROUTES.ABOUT_US} element={<AboutUsPage />} />
+            <Route path="/about" element={<Navigate to={ROUTES.ABOUT_US} replace />} />
+            <Route path={ROUTES.INDUSTRY} element={<IndustryPage />} />
+            <Route path={ROUTES.CONTACT_US} element={<ContactUsPage />} />
+            <Route path="/contact" element={<Navigate to={ROUTES.CONTACT_US} replace />} />
+            <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
+          </Routes>
         </Box>
-        <FooterPage onNavigate={setActivePage} />
+        <FooterPage />
       </Box>
     </ThemeProvider>
   );
