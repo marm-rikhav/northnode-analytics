@@ -32,8 +32,8 @@ const COLORS = {
 
 const servicesList = [
   {
-    name: 'Custom Software Development',
-    desc: 'Tailored software solutions to solve your unique business challenges.',
+    name: "Custom Software Development",
+    desc: "Tailored software solutions to solve your unique business challenges.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6" />
