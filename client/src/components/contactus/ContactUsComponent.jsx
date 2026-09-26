@@ -18,7 +18,6 @@ import {
   LinkedIn as LinkedInIcon,
   Business as BusinessIcon,
   ArrowForward as ArrowIcon,
-  Directions as DirectionsIcon,
 } from '@mui/icons-material';
 import PageBanner from '../common/PageBanner';
 
@@ -93,6 +92,57 @@ const inputSx = {
     fontSize: '0.9rem',
     color: '#0B1F3A',
   },
+  '& .MuiFormHelperText-root': {
+    fontSize: '0.78rem',
+    mx: 0.5,
+  },
+};
+
+const validateField = (name, value) => {
+  const trimmed = value.trim();
+
+  switch (name) {
+    case 'name':
+      if (!trimmed) {
+        return 'Full name is required';
+      }
+      if (trimmed.length < 3 || trimmed.length > 12) {
+        return 'Full name must be between 3 and 12 characters';
+      }
+      return '';
+
+    case 'email':
+      if (!trimmed) {
+        return 'Work email is required';
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+        return 'Please enter a valid work email address';
+      }
+      return '';
+
+    case 'subject':
+      if (trimmed && (trimmed.length < 3 || trimmed.length > 50)) {
+        return 'Subject must be between 3 and 50 characters';
+      }
+      return '';
+
+    case 'message': {
+      if (!trimmed) {
+        return 'Message is required';
+      }
+      const words = trimmed.split(/\s+/).filter(Boolean);
+      if (words.length < 5) {
+        return `Message must contain at least 5 words (currently ${words.length})`;
+      }
+      if (words.length > 150) {
+        return `Message cannot exceed 150 words (currently ${words.length})`;
+      }
+      return '';
+    }
+
+    default:
+      return '';
+  }
 };
 
 const ContactUsComponent = () => {
@@ -102,7 +152,14 @@ const ContactUsComponent = () => {
     subject: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    subject: false,
+    message: false,
+  });
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const handleChange = (e) => {
@@ -111,11 +168,46 @@ const ContactUsComponent = () => {
       ...prev,
       [name]: value,
     }));
+
+    if (touched[name]) {
+      const errorMsg = validateField(name, value);
+      setErrors((prev) => ({
+        ...prev,
+        [name]: errorMsg,
+      }));
+    }
   };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    setTouched((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
+    const errorMsg = validateField(name, value);
+    setErrors((prev) => ({
+      ...prev,
+      [name]: errorMsg,
+    }));
+  };
+
+  const isNameValid = formData.name.trim().length >= 3 && formData.name.trim().length <= 12;
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim());
+  const isSubjectValid = formData.subject.trim().length === 0 || (formData.subject.trim().length >= 3 && formData.subject.trim().length <= 50);
+  const messageWordCount = formData.message.trim().split(/\s+/).filter(Boolean).length;
+  const isMessageValid = messageWordCount >= 5 && messageWordCount <= 150;
+
+  const isFormValid = isNameValid && isEmailValid && isSubjectValid && isMessageValid;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!isFormValid) {
+      return;
+    }
+
+    // Log submitted data to console as requested
+    console.log('Contact Us Form Submitted:', formData);
+
     setOpenSnackbar(true);
     setFormData({
       name: '',
@@ -123,6 +215,13 @@ const ContactUsComponent = () => {
       subject: '',
       message: '',
     });
+    setTouched({
+      name: false,
+      email: false,
+      subject: false,
+      message: false,
+    });
+    setErrors({});
   };
 
   const handleCloseSnackbar = () => {
@@ -305,12 +404,6 @@ const ContactUsComponent = () => {
                   Fill out the form below and an engineering lead will get back to you within 24 hours.
                 </Typography>
 
-                {submitted && (
-                  <Alert severity="success" sx={{ mb: 2.5, borderRadius: '8px' }}>
-                    Thank you! Your message has been sent successfully. We will get in touch with you shortly.
-                  </Alert>
-                )}
-
                 <Box
                   component="form"
                   onSubmit={handleSubmit}
@@ -331,6 +424,9 @@ const ContactUsComponent = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.name && Boolean(errors.name)}
+                      helperText={touched.name && errors.name}
                       variant="outlined"
                       size="small"
                       sx={inputSx}
@@ -343,6 +439,9 @@ const ContactUsComponent = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.email && Boolean(errors.email)}
+                      helperText={touched.email && errors.email}
                       variant="outlined"
                       size="small"
                       sx={inputSx}
@@ -351,10 +450,13 @@ const ContactUsComponent = () => {
                     {/* Row 2: Subject / Project Interest & Message / Project Details */}
                     <TextField
                       fullWidth
-                      label="Subject / Project Interest"
+                      label="Subject / Project Interest (Optional)"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.subject && Boolean(errors.subject)}
+                      helperText={touched.subject && errors.subject}
                       variant="outlined"
                       placeholder="e.g. Cloud, Custom Software, AI"
                       size="small"
@@ -369,8 +471,14 @@ const ContactUsComponent = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      error={touched.message && Boolean(errors.message)}
+                      helperText={
+                        (touched.message && errors.message) ||
+                        (formData.message.trim() ? `${formData.message.trim().split(/\s+/).filter(Boolean).length} words (min 5, max 150)` : '')
+                      }
                       variant="outlined"
-                      placeholder="Tell us about your requirements or goals..."
+                      placeholder="Tell us about your requirements or goals (min 5 words)..."
                       sx={inputSx}
                     />
                   </Box>
@@ -387,6 +495,7 @@ const ContactUsComponent = () => {
                     <Button
                       type="submit"
                       variant="contained"
+                      disabled={!isFormValid}
                       endIcon={<ArrowIcon sx={{ fontSize: 18 }} />}
                       sx={{
                         backgroundColor: '#3E92CC',
@@ -405,39 +514,16 @@ const ContactUsComponent = () => {
                           boxShadow: '0 6px 20px rgba(11, 31, 58, 0.2)',
                           transform: 'translateY(-1px)',
                         },
-                      }}
-                    >
-                      Send Message
-                    </Button>
-
-                    <Button
-                      component="a"
-                      href="https://maps.google.com/?q=121+King+Street+West,+Suite+1900,+Toronto,+Ontario+M5H+3T9,+Canada"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="outlined"
-                      startIcon={<DirectionsIcon sx={{ fontSize: 19 }} />}
-                      sx={{
-                        borderColor: '#1E4D8C',
-                        color: '#1E4D8C',
-                        fontWeight: 700,
-                        fontSize: '0.925rem',
-                        textTransform: 'none',
-                        borderRadius: '8px',
-                        px: 3,
-                        py: 1.15,
-                        borderWidth: '1.5px',
-                        transition: 'all 0.25s ease',
-                        '&:hover': {
-                          borderColor: '#0B1F3A',
-                          backgroundColor: '#EBF3FB',
-                          color: '#0B1F3A',
-                          borderWidth: '1.5px',
-                          transform: 'translateY(-1px)',
+                        '&.Mui-disabled': {
+                          backgroundColor: '#D1DEEB',
+                          color: '#8CA0B3',
+                          boxShadow: 'none',
+                          cursor: 'not-allowed',
+                          pointerEvents: 'auto',
                         },
                       }}
                     >
-                      Get Directions
+                      Send Message
                     </Button>
                   </Box>
                 </Box>
@@ -450,12 +536,12 @@ const ContactUsComponent = () => {
       {/* SNACKBAR NOTIFICATION */}
       <Snackbar
         open={openSnackbar}
-        autoHideDuration={6000}
+        autoHideDuration={5000}
         onClose={handleCloseSnackbar}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >
-        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%', borderRadius: 2 }}>
-          Message sent successfully!
+        <Alert onClose={handleCloseSnackbar} severity="info" sx={{ width: '100%', borderRadius: 2 }}>
+          Form data logged to console successfully!
         </Alert>
       </Snackbar>
     </Box>
