@@ -69,90 +69,6 @@ const servicesList = [
       </svg>
     ),
   },
-  {
-    name: 'Data Analytics',
-    desc: 'Turn data into actionable insights for smarter decisions.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 20V10" />
-        <path d="M12 20V4" />
-        <path d="M6 20V14" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Artificial Intelligence',
-    desc: 'Intelligent solutions to automate, optimize and innovate.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-        <path d="M5 3v4" />
-        <path d="M19 17v4" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Machine Learning',
-    desc: 'Build intelligent systems that learn and evolve.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" />
-        <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'DevOps',
-    desc: 'Faster delivery, better collaboration and reliable operations.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'UI/UX Design',
-    desc: 'User-centric designs that create meaningful experiences.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 19l7-7 3 3-7 7-3-3z" />
-        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-        <circle cx="11" cy="11" r="2" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Cybersecurity',
-    desc: 'Proactive security for a safer digital tomorrow.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <polyline points="9 12 11 14 15 10" />
-      </svg>
-    ),
-  },
-  {
-    name: 'QA & Testing',
-    desc: 'Ensure quality, performance and reliability at every stage.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-        <path d="m9 14 2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    name: 'IT Consulting',
-    desc: 'Strategic guidance to help you achieve your technology goals.',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-        <path d="M9 18h6" />
-        <path d="M10 22h4" />
-      </svg>
-    ),
-  },
 ];
 
 const HeartPulseIcon = () => (
@@ -686,6 +602,37 @@ const HomeComponent = ({ onNavigate }) => {
                   </Box>
                 </Card>
               ))}
+            </Box>
+
+            {/* Explore More Button */}
+            <Box sx={{ textAlign: 'center', mt: { xs: 4, md: 5 } }}>
+              <Button
+                variant="contained"
+                onClick={() => handleNavigation('Services')}
+                endIcon={<ArrowIcon sx={{ fontSize: 18, transition: 'transform 0.2s ease' }} />}
+                sx={{
+                  backgroundColor: '#1E4D8C',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: { xs: '0.95rem', md: '1.025rem' },
+                  textTransform: 'none',
+                  px: { xs: 3.5, md: 4.5 },
+                  py: 1.4,
+                  borderRadius: '10px',
+                  boxShadow: '0 4px 14px rgba(30, 77, 140, 0.25)',
+                  transition: 'all 0.25s ease',
+                  '&:hover': {
+                    backgroundColor: '#163E72',
+                    boxShadow: '0 6px 20px rgba(30, 77, 140, 0.35)',
+                    transform: 'translateY(-2px)',
+                    '& svg': {
+                      transform: 'translateX(3px)',
+                    },
+                  },
+                }}
+              >
+                Explore More
+              </Button>
             </Box>
           </Paper>
         </Container>
