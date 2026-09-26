@@ -245,7 +245,7 @@ const ContactUsComponent = () => {
         component="section"
         sx={{
           py: { xs: 4, sm: 5, md: 6 },
-          px: { xs: '20px', sm: '36px', md: '48px', lg: '64px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
