@@ -409,12 +409,13 @@ const HomeComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 3. WHAT WE DO / ENTERPRISE IT SERVICES & CAPABILITIES */}
+      {/* 2. WHAT WE DO / ENTERPRISE IT SERVICES & CAPABILITIES */}
       <Box
         component="section"
         sx={{
           position: 'relative',
-          py: { xs: 7, md: 9 },
+          pt: { xs: 7, md: 9 },
+          pb: { xs: 3.5, md: 4.5 },
           px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
@@ -447,7 +448,6 @@ const HomeComponent = ({ onNavigate }) => {
                 >
                   WHAT WE DO
                 </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
               </Stack>
 
               <Typography
@@ -644,12 +644,13 @@ const HomeComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 4. SECTORS WE SERVE / INDUSTRIES PREVIEW */}
+      {/* 3. SECTORS WE SERVE / INDUSTRIES PREVIEW */}
       <Box
         component="section"
         sx={{
           position: 'relative',
-          py: { xs: 7, md: 9 },
+          pt: { xs: 3.5, md: 4.5 },
+          pb: { xs: 7, md: 9 },
           px: { xs: 2, sm: 3, md: 4, lg: 6 },
           backgroundColor: '#FFFFFF',
         }}
@@ -683,7 +684,6 @@ const HomeComponent = ({ onNavigate }) => {
                 >
                   SECTORS WE SERVE
                 </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
               </Stack>
 
               <Typography
@@ -906,12 +906,12 @@ const HomeComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 5. WHY NORTHNODE ANALYTICS */}
+      {/* 4. WHY NORTHNODE ANALYTICS */}
       <Box
         component="section"
         sx={{
           position: 'relative',
-          py: { xs: 7, md: 9 },
+          pb: { xs: 3.5, md: 4.5 },
           px: { xs: 2, sm: 3, md: 4, lg: 6 },
           backgroundColor: '#FFFFFF',
         }}
@@ -945,7 +945,6 @@ const HomeComponent = ({ onNavigate }) => {
                 >
                   WHY NORTHNODE ANALYTICS
                 </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
               </Stack>
 
               <Typography
@@ -1117,41 +1116,11 @@ const HomeComponent = ({ onNavigate }) => {
                 </Card>
               ))}
             </Box>
-
-            {/* Read Full Company Profile & Values link inside the white panel */}
-            <Box sx={{ textAlign: 'left', pt: 0.5 }}>
-              <Button
-                variant="text"
-                onClick={() => handleNavigation('About Us')}
-                sx={{
-                  p: 0,
-                  color: '#1E4D8C',
-                  fontWeight: 700,
-                  textTransform: 'none',
-                  fontSize: '0.94rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 1,
-                  transition: 'color 0.2s ease',
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                    color: '#3E92CC',
-                    '& svg': {
-                      transform: 'translateX(4px)',
-                      color: '#1E4D8C',
-                    },
-                  },
-                }}
-              >
-                Read Full Company Profile & Values
-                <ArrowIcon sx={{ fontSize: 16, color: '#3E92CC', transition: 'all 0.2s ease' }} />
-              </Button>
-            </Box>
           </Paper>
         </Container>
       </Box>
 
-      {/* 6. FINAL CTA BANNER */}
+      {/* 5. FINAL CTA BANNER */}
       <Container maxWidth="lg" sx={{ mt: { xs: 6, md: 8 }, mb: { xs: 3, md: 4 } }}>
         <Paper
           elevation={0}
@@ -1166,44 +1135,6 @@ const HomeComponent = ({ onNavigate }) => {
             textAlign: 'center',
           }}
         >
-          {/* Eyebrow / Tagline */}
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            spacing={1.5}
-            sx={{ mb: 2 }}
-          >
-            <Box
-              sx={{
-                width: { xs: 24, sm: 30 },
-                height: '1.5px',
-                backgroundColor: '#3E92CC',
-                opacity: 0.85,
-              }}
-            />
-            <Typography
-              variant="caption"
-              sx={{
-                color: '#3E92CC',
-                fontWeight: 700,
-                letterSpacing: '0.14em',
-                fontSize: { xs: '0.72rem', sm: '0.8rem' },
-                textTransform: 'uppercase',
-                fontFamily: '"Inter", "Plus Jakarta Sans", "Roboto", sans-serif',
-              }}
-            >
-              LET’S BUILD TOGETHER
-            </Typography>
-            <Box
-              sx={{
-                width: { xs: 24, sm: 30 },
-                height: '1.5px',
-                backgroundColor: '#3E92CC',
-                opacity: 0.85,
-              }}
-            />
-          </Stack>
 
           {/* Heading */}
           <Typography
