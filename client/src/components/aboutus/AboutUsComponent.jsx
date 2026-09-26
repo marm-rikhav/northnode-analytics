@@ -24,7 +24,8 @@ import {
   Business as CompanyIcon,
   CheckCircle as CheckIcon,
   ArrowForward as ArrowIcon,
-  Psychology as LeadershipIcon
+  Psychology as LeadershipIcon,
+  Person as PersonIcon,
 } from '@mui/icons-material';
 
 const COLORS = {
@@ -112,6 +113,21 @@ const whyChooseBenefits = [
   },
 ];
 
+const teamMembers = [
+  {
+    name: 'Jainam Sarvaiya',
+    designation: 'CEO & Founder',
+  },
+  {
+    name: 'Meena Odedara',
+    designation: 'Chief Operating Officer',
+  },
+  {
+    name: 'Satish Odedra',
+    designation: 'Chief Technology Officer',
+  },
+];
+
 const AboutUsComponent = ({ onNavigate }) => {
   const navigate = useNavigate();
 
@@ -137,7 +153,7 @@ const AboutUsComponent = ({ onNavigate }) => {
         component="section"
         sx={{
           py: { xs: 4, sm: 5, md: 6 },
-          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -201,7 +217,7 @@ const AboutUsComponent = ({ onNavigate }) => {
         component="section"
         sx={{
           pb: { xs: 4, sm: 5, md: 6 },
-          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -398,7 +414,7 @@ const AboutUsComponent = ({ onNavigate }) => {
         component="section"
         sx={{
           pb: { xs: 4, sm: 5, md: 6 },
-          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -554,7 +570,7 @@ const AboutUsComponent = ({ onNavigate }) => {
         component="section"
         sx={{
           pb: { xs: '48px', sm: '56px', md: '64px', lg: '80px' },
-          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
@@ -763,170 +779,338 @@ const AboutUsComponent = ({ onNavigate }) => {
       <Box
         component="section"
         sx={{
-          pb: { xs: 5, md: 7 },
-          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
+          pb: { xs: 4, sm: 5, md: 6 },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
-          {/* Section Header */}
-          <Box sx={{ mb: { xs: 3.5, md: 4.5 } }}>
-            <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: '12px' }}>
+          <Paper
+            elevation={0}
+            sx={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: { xs: '20px', md: '24px' },
+              border: '1px solid #D9E5F2',
+              boxShadow: '0 4px 24px rgba(11, 31, 58, 0.04)',
+              p: { xs: '24px', sm: '32px', md: '40px 44px' },
+              position: 'relative',
+            }}
+          >
+            {/* Header: WHY CHOOSE NORTHNODE */}
+            <Box sx={{ mb: { xs: 3.5, md: 4.5 } }}>
+              <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: '12px' }}>
+                <Typography
+                  variant="overline"
+                  sx={{
+                    color: '#1E4D8C',
+                    fontWeight: 700,
+                    letterSpacing: 2,
+                    fontSize: '0.85rem',
+                    textTransform: 'uppercase',
+                    lineHeight: 1,
+                  }}
+                >
+                  WHY CHOOSE NORTHNODE
+                </Typography>
+              </Stack>
+              <Typography
+                variant="h2"
+                component="h2"
+                sx={{
+                  color: '#0B1F3A',
+                  fontWeight: 800,
+                  fontSize: { xs: '1.75rem', sm: '2rem', md: '2.35rem' },
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2,
+                  mb: 1.5,
+                }}
+              >
+                Why Choose NorthNode Analytics
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: '#1E4D8C',
+                  maxWidth: '720px',
+                  lineHeight: 1.6,
+                  fontSize: { xs: '0.95rem', md: '1.025rem' },
+                }}
+              >
+                Proven Canadian engineering rigor paired with global delivery capability to accelerate your digital transformation.
+              </Typography>
+            </Box>
+
+            {/* 2-Column Benefit Card Grid */}
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                  xs: '1fr',
+                  md: 'repeat(2, 1fr)',
+                },
+                gap: { xs: '16px', md: '20px' },
+                alignItems: 'stretch',
+              }}
+            >
+              {whyChooseBenefits.map((item, idx) => {
+                const isLast = idx === whyChooseBenefits.length - 1;
+                return (
+                  <Card
+                    key={item.title}
+                    elevation={0}
+                    sx={{
+                      gridColumn: isLast ? { xs: 'span 1', md: 'span 2' } : 'span 1',
+                      backgroundColor: '#EAF3FB',
+                      border: '1px solid #D9E4F0',
+                      borderRadius: '14px',
+                      p: { xs: '20px', md: '24px' },
+                      boxShadow: '0 4px 14px rgba(11, 31, 58, 0.04)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                      '&:hover': {
+                        transform: 'translateY(-4px)',
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#3E92CC',
+                        boxShadow: '0 12px 28px rgba(11, 31, 58, 0.06), 0 0 20px rgba(62, 146, 204, 0.22)',
+                        '& .check-circle-badge': {
+                          backgroundColor: '#EAF3FB',
+                          color: '#1E4D8C',
+                        },
+                      },
+                    }}
+                  >
+                    <Stack direction="row" spacing={2} alignItems="flex-start">
+                      <Box
+                        className="check-circle-badge"
+                        sx={{
+                          width: 38,
+                          height: 38,
+                          borderRadius: '50%',
+                          backgroundColor: '#FFFFFF',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#3E92CC',
+                          flexShrink: 0,
+                          boxShadow: '0 2px 6px rgba(11, 31, 58, 0.06)',
+                          transition: 'all 0.25s ease',
+                        }}
+                      >
+                        <CheckIcon sx={{ fontSize: 20, color: 'inherit' }} />
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography
+                          sx={{
+                            color: '#0B1F3A',
+                            fontWeight: 700,
+                            fontSize: { xs: '1.05rem', md: '1.12rem' },
+                            lineHeight: 1.35,
+                            mb: 0.8,
+                          }}
+                        >
+                          {item.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: '#1E4D8C',
+                            fontSize: { xs: '0.9rem', md: '0.95rem' },
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {item.desc}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </Card>
+                );
+              })}
+            </Box>
+
+            {/* Centered CTA Button */}
+            <Box sx={{ textAlign: 'center', mt: { xs: 4, md: 5 } }}>
+              <Button
+                variant="contained"
+                onClick={() => handleNavigation('Contact Us')}
+                endIcon={<ArrowIcon />}
+                sx={{
+                  backgroundColor: '#1E4D8C',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: { xs: '1rem', md: '1.05rem' },
+                  textTransform: 'none',
+                  px: { xs: 3.5, md: 4.5 },
+                  py: 1.5,
+                  borderRadius: '10px',
+                  transition: 'all 0.25s ease',
+                  '&:hover': {
+                    backgroundColor: '#3E92CC',
+                    color: '#FFFFFF',
+                    boxShadow: '0 6px 20px rgba(30, 77, 140, 0.35)',
+                    transform: 'translateY(-2px)',
+                  },
+                }}
+              >
+                Partner With NorthNode Analytics
+              </Button>
+            </Box>
+          </Paper>
+        </Container>
+      </Box>
+
+      {/* 7. OUR TEAM */}
+      <Box
+        component="section"
+        sx={{
+          pb: { xs: 5, md: 7 },
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
+        }}
+      >
+        <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
+          <Paper
+            elevation={0}
+            sx={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: { xs: '20px', md: '24px' },
+              border: '1px solid #D9E5F2',
+              boxShadow: '0 4px 24px rgba(11, 31, 58, 0.04)',
+              p: { xs: '24px', sm: '32px', md: '40px 44px' },
+              position: 'relative',
+            }}
+          >
+            <Box sx={{ mb: { xs: 3.5, md: 4 } }}>
               <Typography
                 variant="overline"
                 sx={{
-                  color: '#1E4D8C',
+                  color: '#3E92CC',
                   fontWeight: 700,
                   letterSpacing: 2,
                   fontSize: '0.85rem',
                   textTransform: 'uppercase',
                   lineHeight: 1,
+                  display: 'block',
+                  mb: '10px',
                 }}
               >
-                WHY CHOOSE NORTHNODE
+                OUR TEAM
               </Typography>
-            </Stack>
-            <Typography
-              variant="h2"
-              component="h2"
-              sx={{
-                color: '#0B1F3A',
-                fontWeight: 800,
-                fontSize: { xs: '1.75rem', sm: '2rem', md: '2.35rem' },
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2,
-                mb: 1.5,
-              }}
-            >
-              Why Choose NorthNode Analytics
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: '#1E4D8C',
-                maxWidth: '720px',
-                lineHeight: 1.6,
-                fontSize: { xs: '0.95rem', md: '1.025rem' },
-              }}
-            >
-              Proven Canadian engineering rigor paired with global delivery capability to accelerate your digital transformation.
-            </Typography>
-          </Box>
+              <Typography
+                variant="h2"
+                component="h2"
+                sx={{
+                  color: '#0B1F3A',
+                  fontWeight: 800,
+                  fontSize: { xs: '1.75rem', sm: '2rem', md: '2.35rem' },
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2,
+                  mb: '14px',
+                }}
+              >
+                The People Behind Our Work
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: '#1E4D8C',
+                  maxWidth: '720px',
+                  lineHeight: 1.6,
+                  fontSize: { xs: '0.95rem', md: '1.025rem' },
+                }}
+              >
+                Experienced leaders bringing together engineering, technology, and business expertise.
+              </Typography>
+            </Box>
 
-          {/* 2-Column Benefit Card Grid */}
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: {
-                xs: '1fr',
-                md: 'repeat(2, 1fr)',
-              },
-              gap: { xs: '16px', md: '20px' },
-              alignItems: 'stretch',
-            }}
-          >
-            {whyChooseBenefits.map((item, idx) => {
-              const isLast = idx === whyChooseBenefits.length - 1;
-              return (
+            {/* 3 Team Cards Grid */}
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                  xs: '1fr',
+                  sm: 'repeat(2, 1fr)',
+                  md: 'repeat(3, 1fr)',
+                },
+                gap: '24px',
+                alignItems: 'stretch',
+              }}
+            >
+              {teamMembers.map((member) => (
                 <Card
-                  key={item.title}
+                  key={member.name}
                   elevation={0}
                   sx={{
-                    gridColumn: isLast ? { xs: 'span 1', md: 'span 2' } : 'span 1',
-                    backgroundColor: '#EAF3FB',
-                    border: '1px solid #D9E4F0',
-                    borderRadius: '14px',
-                    p: { xs: '20px', md: '24px' },
-                    boxShadow: '0 4px 14px rgba(11, 31, 58, 0.04)',
+                    backgroundColor: '#F8FAFC',
+                    borderRadius: '16px',
+                    border: '1px solid #D8E2EE',
+                    boxShadow: '0 4px 14px rgba(11, 31, 58, 0.03)',
+                    p: { xs: '24px', sm: '26px', md: '28px' },
+                    textAlign: 'center',
                     display: 'flex',
                     flexDirection: 'column',
+                    alignItems: 'center',
                     justifyContent: 'center',
+                    height: '100%',
                     transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&:hover': {
                       transform: 'translateY(-4px)',
                       backgroundColor: '#FFFFFF',
+                      boxShadow: '0 12px 28px rgba(11, 31, 58, 0.08)',
                       borderColor: '#3E92CC',
-                      boxShadow: '0 12px 28px rgba(11, 31, 58, 0.06), 0 0 20px rgba(62, 146, 204, 0.22)',
-                      '& .check-circle-badge': {
-                        backgroundColor: '#EAF3FB',
-                        color: '#1E4D8C',
-                      },
                     },
                   }}
                 >
-                  <Stack direction="row" spacing={2} alignItems="flex-start">
-                    <Box
-                      className="check-circle-badge"
-                      sx={{
-                        width: 38,
-                        height: 38,
-                        borderRadius: '50%',
-                        backgroundColor: '#FFFFFF',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#3E92CC',
-                        flexShrink: 0,
-                        boxShadow: '0 2px 6px rgba(11, 31, 58, 0.06)',
-                        transition: 'all 0.25s ease',
-                      }}
-                    >
-                      <CheckIcon sx={{ fontSize: 20, color: 'inherit' }} />
-                    </Box>
-                    <Box sx={{ flex: 1 }}>
-                      <Typography
-                        sx={{
-                          color: '#0B1F3A',
-                          fontWeight: 700,
-                          fontSize: { xs: '1.05rem', md: '1.12rem' },
-                          lineHeight: 1.35,
-                          mb: 0.8,
-                        }}
-                      >
-                        {item.title}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          color: '#1E4D8C',
-                          fontSize: { xs: '0.9rem', md: '0.95rem' },
-                          lineHeight: 1.6,
-                        }}
-                      >
-                        {item.desc}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </Card>
-              );
-            })}
-          </Box>
+                  {/* Circular Avatar */}
+                  <Box
+                    sx={{
+                      width: 76,
+                      height: 76,
+                      borderRadius: '50%',
+                      backgroundColor: '#FFFFFF',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mb: 2.25,
+                      border: '1px solid #D8E2EE',
+                      color: '#3E92CC',
+                      boxShadow: '0 2px 8px rgba(11, 31, 58, 0.04)',
+                      transition: 'all 0.25s ease',
+                    }}
+                  >
+                    <PersonIcon sx={{ fontSize: 40, color: 'inherit' }} />
+                  </Box>
 
-          {/* Centered CTA Button */}
-          <Box sx={{ textAlign: 'center', mt: { xs: 4.5, md: 5.5 } }}>
-            <Button
-              variant="contained"
-              onClick={() => handleNavigation('Contact Us')}
-              endIcon={<ArrowIcon />}
-              sx={{
-                backgroundColor: '#1E4D8C',
-                color: '#FFFFFF',
-                fontWeight: 700,
-                fontSize: { xs: '1rem', md: '1.05rem' },
-                textTransform: 'none',
-                px: { xs: 3.5, md: 4.5 },
-                py: 1.5,
-                borderRadius: '10px',
-                transition: 'all 0.25s ease',
-                '&:hover': {
-                  backgroundColor: '#3E92CC',
-                   color: '#FFFFFF',
-                  boxShadow: '0 6px 20px rgba(30, 77, 140, 0.35)',
-                  transform: 'translateY(-2px)',
-                },
-              }}
-            >
-              Partner With NorthNode Analytics
-            </Button>
-          </Box>
+                  {/* Team Member Name */}
+                  <Typography
+                    variant="h3"
+                    component="h3"
+                    sx={{
+                      color: '#0B1F3A',
+                      fontWeight: 700,
+                      fontSize: { xs: '1.18rem', md: '1.25rem' },
+                      letterSpacing: '-0.01em',
+                      lineHeight: 1.3,
+                      mb: 0.75,
+                    }}
+                  >
+                    {member.name}
+                  </Typography>
+
+                  {/* Designation */}
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: '#1E4D8C',
+                      fontWeight: 600,
+                      fontSize: '0.925rem',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {member.designation}
+                  </Typography>
+                </Card>
+              ))}
+            </Box>
+          </Paper>
         </Container>
       </Box>
     </Box>
