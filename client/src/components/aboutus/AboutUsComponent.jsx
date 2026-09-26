@@ -68,15 +68,7 @@ const coreValues = [
   }
 ];
 
-const corporateSnapshot = [
-  { label: 'Legal Name', value: 'NorthNode Analytics Inc.' },
-  { label: 'Headquarters', value: 'Toronto, Ontario, Canada' },
-  { label: 'Founded', value: '2016' },
-  { label: 'Employees', value: '180+ across engineering, data, design, and delivery' },
-  { label: 'Clients Served', value: '120+ organizations across 14 countries' },
-  { label: 'Delivery Model', value: 'Onshore, nearshore, and hybrid engagement teams' },
-  { label: 'Industry Focus', value: 'IT Services, Software Development, Cloud & AI' }
-];
+
 
 const companyProfileDetails = [
   { label: 'Company Type', value: 'Private, Federally Incorporated (Canada)' },
@@ -131,107 +123,6 @@ const AboutUsComponent = ({ onNavigate }) => {
     navigate(targetPath);
   };
 
-  const renderSnapshotValue = (label, value) => {
-    if (label === 'Founded') {
-      return (
-        <Typography
-          sx={{
-            color: '#3E92CC',
-            fontWeight: 800,
-            fontSize: { xs: '1.85rem', md: '2.1rem' },
-            lineHeight: 1.1,
-          }}
-        >
-          {value}
-        </Typography>
-      );
-    }
-    if (label === 'Employees') {
-      const num = '180+';
-      const rest = value.replace('180+', '').trim();
-      return (
-        <Box>
-          <Typography
-            sx={{
-              color: '#3E92CC',
-              fontWeight: 800,
-              fontSize: { xs: '1.85rem', md: '2.1rem' },
-              lineHeight: 1.1,
-              mb: 0.5,
-            }}
-          >
-            {num}
-          </Typography>
-          <Typography
-            sx={{
-              color: '#0B1F3A',
-              fontWeight: 600,
-              fontSize: '0.925rem',
-              lineHeight: 1.5,
-            }}
-          >
-            {rest}
-          </Typography>
-        </Box>
-      );
-    }
-    if (label === 'Clients Served') {
-      const num = '120+';
-      const rest = value.replace('120+', '').trim();
-      return (
-        <Box>
-          <Typography
-            sx={{
-              color: '#3E92CC',
-              fontWeight: 800,
-              fontSize: { xs: '1.85rem', md: '2.1rem' },
-              lineHeight: 1.1,
-              mb: 0.5,
-            }}
-          >
-            {num}
-          </Typography>
-          <Typography
-            sx={{
-              color: '#0B1F3A',
-              fontWeight: 600,
-              fontSize: '0.925rem',
-              lineHeight: 1.5,
-            }}
-          >
-            {rest}
-          </Typography>
-        </Box>
-      );
-    }
-    if (label === 'Industry Focus') {
-      const displayVal = value.includes(',') ? value.split(',').map((s) => s.trim()).join(' · ') : value;
-      return (
-        <Typography
-          sx={{
-            color: '#0B1F3A',
-            fontWeight: 700,
-            fontSize: { xs: '1.05rem', md: '1.18rem' },
-            lineHeight: 1.4,
-          }}
-        >
-          {displayVal}
-        </Typography>
-      );
-    }
-    return (
-      <Typography
-        sx={{
-          color: '#0B1F3A',
-          fontWeight: 700,
-          fontSize: { xs: '1.1rem', md: '1.2rem' },
-          lineHeight: 1.35,
-        }}
-      >
-        {value}
-      </Typography>
-    );
-  };
 
   return (
     <Box sx={{ backgroundColor: COLORS.light, pb: 8 }}>
@@ -538,7 +429,6 @@ const AboutUsComponent = ({ onNavigate }) => {
                 >
                   WHAT DRIVES US
                 </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
               </Stack>
               <Typography
                 variant="h2"
@@ -657,121 +547,9 @@ const AboutUsComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 5. AT A GLANCE — CORPORATE SNAPSHOT */}
-      <Box
-        component="section"
-        sx={{
-          pb: { xs: '48px', md: '56px', lg: '64px' },
-          px: { xs: '24px', sm: '36px', md: '48px', lg: '64px' },
-        }}
-      >
-        <Container maxWidth="xl" disableGutters sx={{ mx: 'auto' }}>
-          <Paper
-            elevation={0}
-            sx={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: '24px',
-              border: '1px solid #D9E5F2',
-              boxShadow: '0 4px 24px rgba(11, 31, 58, 0.04)',
-              p: { xs: '24px', sm: '32px', md: '40px 44px' },
-              position: 'relative',
-            }}
-          >
-            {/* Section Heading */}
-            <Box sx={{ mb: { xs: '24px', md: '36px' } }}>
-              <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: '12px' }}>
-                <Typography
-                  variant="overline"
-                  sx={{
-                    color: '#1E4D8C',
-                    fontWeight: 700,
-                    letterSpacing: 2,
-                    fontSize: '0.85rem',
-                    textTransform: 'uppercase',
-                    lineHeight: 1,
-                  }}
-                >
-                  AT A GLANCE
-                </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
-              </Stack>
-              <Typography
-                variant="h2"
-                component="h2"
-                sx={{
-                  color: '#0B1F3A',
-                  fontWeight: 800,
-                  fontSize: { xs: '1.75rem', sm: '2rem', md: '2.35rem' },
-                  letterSpacing: '-0.02em',
-                  lineHeight: 1.2,
-                }}
-              >
-                At a Glance — Corporate Snapshot
-              </Typography>
-            </Box>
 
-            {/* Corporate Snapshot Card Grid */}
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: {
-                  xs: '1fr',
-                  sm: 'repeat(2, 1fr)',
-                  md: 'repeat(3, 1fr)',
-                },
-                gap: { xs: '16px', sm: '20px', md: '24px' },
-              }}
-            >
-              {corporateSnapshot.map((item) => {
-                const isIndustryFocus = item.label === 'Industry Focus';
-                return (
-                  <Card
-                    key={item.label}
-                    elevation={0}
-                    sx={{
-                      gridColumn: isIndustryFocus
-                        ? { xs: 'span 1', sm: 'span 2', md: 'span 3' }
-                        : 'span 1',
-                      borderRadius: '16px',
-                      backgroundColor: '#F2F5F9',
-                      border: '1px solid #D9E5F2',
-                      boxShadow: '0 4px 14px rgba(11, 31, 58, 0.05)',
-                      p: '24px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      minHeight: isIndustryFocus ? { xs: 'auto', md: '110px' } : { xs: 'auto', sm: '135px', md: '145px' },
-                      transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                      '&:hover': {
-                        transform: 'translateY(-4px)',
-                        backgroundColor: '#FFFFFF',
-                        borderColor: '#1E4D8C',
-                        boxShadow: '0 12px 28px rgba(11, 31, 58, 0.1)',
-                      },
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        color: '#1E4D8C',
-                        fontWeight: 700,
-                        fontSize: '0.8rem',
-                        letterSpacing: 1.2,
-                        textTransform: 'uppercase',
-                        mb: 1.2,
-                      }}
-                    >
-                      {item.label}
-                    </Typography>
-                    {renderSnapshotValue(item.label, item.value)}
-                  </Card>
-                );
-              })}
-            </Box>
-          </Paper>
-        </Container>
-      </Box>
 
-      {/* 6. COMPANY PROFILE & LEADERSHIP PHILOSOPHY (Side-by-Side 2-Column Layout) */}
+      {/* 5. COMPANY PROFILE & LEADERSHIP PHILOSOPHY */}
       <Box
         component="section"
         sx={{
@@ -794,194 +572,194 @@ const AboutUsComponent = ({ onNavigate }) => {
             <Box
               sx={{
                 display: 'grid',
-              gridTemplateColumns: {
-                xs: '1fr',
-                md: 'repeat(2, 1fr)',
-              },
-              gap: '24px',
-              alignItems: 'stretch',
-            }}
-          >
-            {/* Card 1: Company Profile & Legitimacy */}
-            <Card
-              elevation={0}
-              sx={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '16px',
-                border: '1px solid #D6E2F0',
-                boxShadow: '0 4px 20px rgba(11, 31, 58, 0.04)',
-                p: { xs: '20px', sm: '26px', md: '28px 30px' },
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 12px 28px rgba(11, 31, 58, 0.08)',
-                  borderColor: '#3E92CC',
+                gridTemplateColumns: {
+                  xs: '1fr',
+                  md: 'repeat(2, 1fr)',
                 },
+                gap: '24px',
+                alignItems: 'stretch',
               }}
             >
-              <Typography
-                variant="h2"
-                component="h2"
+              {/* Card 1: Company Profile & Legitimacy */}
+              <Card
+                elevation={0}
                 sx={{
-                  color: '#0B1F3A',
-                  fontWeight: 800,
-                  fontSize: { xs: '1.35rem', sm: '1.5rem', md: '1.65rem' },
-                  letterSpacing: '-0.02em',
-                  lineHeight: 1.25,
-                  mb: { xs: 2, md: 2.25 },
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '16px',
+                  border: '1px solid #D6E2F0',
+                  boxShadow: '0 4px 20px rgba(11, 31, 58, 0.04)',
+                  p: { xs: '20px', sm: '26px', md: '28px 30px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%',
+                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 12px 28px rgba(11, 31, 58, 0.08)',
+                    borderColor: '#3E92CC',
+                  },
                 }}
               >
-                Company Profile & Legitimacy
-              </Typography>
-
-              {/* Compact Information Blocks Grid */}
-              <Box
-                sx={{
-                  display: 'grid',
-                  gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
-                  gap: { xs: '8px', sm: '10px' },
-                  flex: 1,
-                }}
-              >
-                {companyProfileDetails.map((item) => {
-                  const isFullWidth = item.label === 'Core Competencies' || item.label === 'Engagement Types';
-                  return (
-                    <Box
-                      key={item.label}
-                      sx={{
-                        gridColumn: isFullWidth ? { xs: 'span 1', sm: 'span 2' } : 'span 1',
-                        backgroundColor: '#F8FAFC',
-                        border: '1px solid #D6E2F0',
-                        borderRadius: '8px',
-                        p: { xs: '9px 12px', sm: '10px 14px' },
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        transition: 'all 0.2s ease',
-                        '&:hover': {
-                          backgroundColor: '#FFFFFF',
-                          borderColor: '#3E92CC',
-                        },
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          color: '#0B1F3A',
-                          fontWeight: 700,
-                          fontSize: '0.72rem',
-                          letterSpacing: '0.05em',
-                          textTransform: 'uppercase',
-                          lineHeight: 1.2,
-                          mb: 0.35,
-                        }}
-                      >
-                        {item.label}
-                      </Typography>
-                      {item.label === 'Website' ? (
-                        <Box
-                          component="a"
-                          href={`https://${item.value}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          sx={{
-                            color: '#1E4D8C',
-                            textDecoration: 'none',
-                            fontWeight: 600,
-                            fontSize: '0.85rem',
-                            lineHeight: 1.35,
-                            wordBreak: 'break-word',
-                            '&:hover': {
-                              color: '#3E92CC',
-                              textDecoration: 'underline',
-                            },
-                          }}
-                        >
-                          {item.value}
-                        </Box>
-                      ) : (
-                        <Typography
-                          sx={{
-                            color: '#1E4D8C',
-                            fontWeight: 500,
-                            fontSize: '0.85rem',
-                            lineHeight: 1.35,
-                            wordBreak: 'break-word',
-                          }}
-                        >
-                          {item.value}
-                        </Typography>
-                      )}
-                    </Box>
-                  );
-                })}
-              </Box>
-            </Card>
-
-            {/* Card 2: Leadership Philosophy */}
-            <Card
-              elevation={0}
-              sx={{
-                backgroundColor: '#1E4D8C',
-                borderRadius: '16px',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                boxShadow: '0 8px 24px rgba(30, 77, 140, 0.18)',
-                p: { xs: '24px', sm: '28px', md: '32px' },
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                height: '100%',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 16px 36px rgba(30, 77, 140, 0.3)',
-                },
-              }}
-            >
-              {/* Header: Icon + Heading */}
-              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
-                <LeadershipIcon sx={{ color: '#3E92CC', fontSize: { xs: 28, md: 32 } }} />
                 <Typography
                   variant="h2"
                   component="h2"
                   sx={{
-                    color: '#FFFFFF',
+                    color: '#0B1F3A',
                     fontWeight: 800,
-                    fontSize: { xs: '1.4rem', sm: '1.6rem', md: '1.75rem' },
+                    fontSize: { xs: '1.35rem', sm: '1.5rem', md: '1.65rem' },
                     letterSpacing: '-0.02em',
                     lineHeight: 1.25,
+                    mb: { xs: 2, md: 2.25 },
                   }}
                 >
-                  Leadership Philosophy
+                  Company Profile & Legitimacy
                 </Typography>
-              </Stack>
 
-              {/* Accent Line */}
-              <Box sx={{ width: 40, height: 3, backgroundColor: '#3E92CC', borderRadius: 1.5, mb: { xs: 2.5, md: 3 } }} />
+                {/* Compact Information Blocks Grid */}
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+                    gap: { xs: '8px', sm: '10px' },
+                    flex: 1,
+                  }}
+                >
+                  {companyProfileDetails.map((item) => {
+                    const isFullWidth = item.label === 'Core Competencies' || item.label === 'Engagement Types';
+                    return (
+                      <Box
+                        key={item.label}
+                        sx={{
+                          gridColumn: isFullWidth ? { xs: 'span 1', sm: 'span 2' } : 'span 1',
+                          backgroundColor: '#F8FAFC',
+                          border: '1px solid #D6E2F0',
+                          borderRadius: '8px',
+                          p: { xs: '9px 12px', sm: '10px 14px' },
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          transition: 'all 0.2s ease',
+                          '&:hover': {
+                            backgroundColor: '#FFFFFF',
+                            borderColor: '#3E92CC',
+                          },
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            color: '#0B1F3A',
+                            fontWeight: 700,
+                            fontSize: '0.72rem',
+                            letterSpacing: '0.05em',
+                            textTransform: 'uppercase',
+                            lineHeight: 1.2,
+                            mb: 0.35,
+                          }}
+                        >
+                          {item.label}
+                        </Typography>
+                        {item.label === 'Website' ? (
+                          <Box
+                            component="a"
+                            href={`https://${item.value}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{
+                              color: '#1E4D8C',
+                              textDecoration: 'none',
+                              fontWeight: 600,
+                              fontSize: '0.85rem',
+                              lineHeight: 1.35,
+                              wordBreak: 'break-word',
+                              '&:hover': {
+                                color: '#3E92CC',
+                                textDecoration: 'underline',
+                              },
+                            }}
+                          >
+                            {item.value}
+                          </Box>
+                        ) : (
+                          <Typography
+                            sx={{
+                              color: '#1E4D8C',
+                              fontWeight: 500,
+                              fontSize: '0.85rem',
+                              lineHeight: 1.35,
+                              wordBreak: 'break-word',
+                            }}
+                          >
+                            {item.value}
+                          </Typography>
+                        )}
+                      </Box>
+                    );
+                  })}
+                </Box>
+              </Card>
 
-              {/* Body Text */}
-              <Typography
-                variant="body1"
+              {/* Card 2: Leadership Philosophy */}
+              <Card
+                elevation={0}
                 sx={{
-                  color: '#FFFFFF',
-                  opacity: 0.94,
-                  fontSize: { xs: '0.98rem', md: '1.05rem' },
-                  lineHeight: 1.8,
+                  backgroundColor: '#1E4D8C',
+                  borderRadius: '16px',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  boxShadow: '0 8px 24px rgba(30, 77, 140, 0.18)',
+                  p: { xs: '24px', sm: '28px', md: '32px' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  height: '100%',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: '0 16px 36px rgba(30, 77, 140, 0.3)',
+                  },
                 }}
               >
-                NorthNode Analytics is led by a senior team with backgrounds spanning global systems integrators, cloud hyperscalers, and venture-backed product companies. This blend of enterprise discipline and startup agility informs how we staff, price, and deliver every engagement — with governance where it matters and speed where it counts.
-              </Typography>
-            </Card>
-          </Box>
-        </Paper>
-      </Container>
-    </Box>
+                {/* Header: Icon + Heading */}
+                <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 2 }}>
+                  <LeadershipIcon sx={{ color: '#3E92CC', fontSize: { xs: 28, md: 32 } }} />
+                  <Typography
+                    variant="h2"
+                    component="h2"
+                    sx={{
+                      color: '#FFFFFF',
+                      fontWeight: 800,
+                      fontSize: { xs: '1.4rem', sm: '1.6rem', md: '1.75rem' },
+                      letterSpacing: '-0.02em',
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    Leadership Philosophy
+                  </Typography>
+                </Stack>
 
-      {/* 8. WHY CHOOSE NORTHNODE ANALYTICS */}
+                {/* Accent Line */}
+                <Box sx={{ width: 40, height: 3, backgroundColor: '#3E92CC', borderRadius: 1.5, mb: { xs: 2.5, md: 3 } }} />
+
+                {/* Body Text */}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: '#FFFFFF',
+                    opacity: 0.94,
+                    fontSize: { xs: '0.98rem', md: '1.05rem' },
+                    lineHeight: 1.8,
+                  }}
+                >
+                  NorthNode Analytics is led by a senior team with backgrounds spanning global systems integrators, cloud hyperscalers, and venture-backed product companies. This blend of enterprise discipline and startup agility informs how we staff, price, and deliver every engagement — with governance where it matters and speed where it counts.
+                </Typography>
+              </Card>
+            </Box>
+          </Paper>
+        </Container>
+      </Box>
+
+      {/* 6. WHY CHOOSE NORTHNODE ANALYTICS */}
       <Box
         component="section"
         sx={{
@@ -1006,7 +784,6 @@ const AboutUsComponent = ({ onNavigate }) => {
               >
                 WHY CHOOSE NORTHNODE
               </Typography>
-              <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
             </Stack>
             <Typography
               variant="h2"
@@ -1138,10 +915,10 @@ const AboutUsComponent = ({ onNavigate }) => {
                 px: { xs: 3.5, md: 4.5 },
                 py: 1.5,
                 borderRadius: '10px',
-                boxShadow: '0 4px 14px rgba(30, 77, 140, 0.25)',
                 transition: 'all 0.25s ease',
                 '&:hover': {
-                  backgroundColor: '#163E72',
+                  backgroundColor: '#3E92CC',
+                   color: '#FFFFFF',
                   boxShadow: '0 6px 20px rgba(30, 77, 140, 0.35)',
                   transform: 'translateY(-2px)',
                 },
