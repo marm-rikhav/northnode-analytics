@@ -265,7 +265,6 @@ const ServicesComponent = ({ onNavigate }) => {
                 >
                   OUR SERVICE PORTFOLIO
                 </Typography>
-                <Box sx={{ width: 34, height: 2, backgroundColor: '#1E4D8C', borderRadius: 1 }} />
               </Stack>
               <Typography
                 variant="h2"
@@ -426,7 +425,7 @@ const ServicesComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 3. TECHNOLOGY STACK & HOW WE DELIVER (Side-by-Side 2-Column Layout) */}
+      {/* 3. TECHNOLOGY STACK & HOW WE DELIVER */}
       <Box
         component="section"
         sx={{
@@ -483,7 +482,6 @@ const ServicesComponent = ({ onNavigate }) => {
                   >
                     CORE CAPABILITIES
                   </Typography>
-                  <Box sx={{ width: 28, height: 2, backgroundColor: '#3E92CC', borderRadius: 1 }} />
                 </Stack>
                 <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 0.8 }}>
                   <TechIcon sx={{ color: '#3E92CC', fontSize: 26 }} />
@@ -604,7 +602,6 @@ const ServicesComponent = ({ onNavigate }) => {
                   >
                     HOW WE DELIVER
                   </Typography>
-                  <Box sx={{ width: 28, height: 2, backgroundColor: '#3E92CC', borderRadius: 1 }} />
                 </Stack>
                 <Typography
                   variant="h3"
@@ -721,7 +718,7 @@ const ServicesComponent = ({ onNavigate }) => {
         </Container>
       </Box>
 
-      {/* 5 & 6. QUALITY ASSURANCE & SECURITY STANDARDS (SIDE BY SIDE) */}
+      {/* 4 & 5. QUALITY ASSURANCE & SECURITY STANDARDS */}
       <Box
         component="section"
         sx={{
