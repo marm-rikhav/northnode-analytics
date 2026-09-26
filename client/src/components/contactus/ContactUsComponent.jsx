@@ -20,6 +20,7 @@ import {
   ArrowForward as ArrowIcon,
   Directions as DirectionsIcon,
 } from '@mui/icons-material';
+import PageBanner from '../common/PageBanner';
 
 const COLORS = {
   navy: '#0B1F3A',
@@ -131,45 +132,10 @@ const ContactUsComponent = () => {
   return (
     <Box sx={{ backgroundColor: COLORS.light, pb: 8 }}>
       {/* 1. HERO HEADER */}
-      <Box
-        component="section"
-        sx={{
-          backgroundColor: COLORS.blue,
-          color: COLORS.white,
-          py: { xs: 6, sm: 7.5, md: 9 },
-          px: { xs: '24px', sm: '40px', md: '48px', lg: '64px' },
-          textAlign: 'center',
-        }}
-      >
-        <Container maxWidth="lg" disableGutters>
-          <Typography
-            variant="h1"
-            sx={{
-              color: COLORS.white,
-              fontWeight: 800,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3.25rem' },
-              lineHeight: 1.2,
-              mb: { xs: 1.5, md: 2 },
-            }}
-          >
-            Let’s Build Something Intelligent Together
-          </Typography>
-          <Typography
-            variant="h6"
-            component="p"
-            sx={{
-              color: COLORS.sky,
-              fontWeight: 600,
-              fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
-              lineHeight: 1.5,
-              maxWidth: '800px',
-              mx: 'auto',
-            }}
-          >
-            Reach out to discuss how NorthNode Analytics can support your next digital initiative.
-          </Typography>
-        </Container>
-      </Box>
+      <PageBanner
+        title="Let’s Build Something Intelligent Together"
+        subtitle="Reach out to discuss how NorthNode Analytics can support your next digital initiative."
+      />
 
       {/* 2. UNIFIED CONTACT INFORMATION & SEND US A MESSAGE CARD */}
       <Box

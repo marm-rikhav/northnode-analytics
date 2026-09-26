@@ -8,9 +8,10 @@ import {
   Button,
   Paper,
   Stack,
-  Divider
+  Divider,
 } from '@mui/material';
 import { ROUTE_MAP } from '../../constants/routes';
+import PageBanner from '../common/PageBanner';
 import {
   Handshake as IntegrityIcon,
   Engineering as EngineeringIcon,
@@ -235,45 +236,10 @@ const AboutUsComponent = ({ onNavigate }) => {
   return (
     <Box sx={{ backgroundColor: COLORS.light, pb: 8 }}>
       {/* 1. HERO HEADER */}
-      <Box
-        component="section"
-        sx={{
-          backgroundColor: COLORS.blue,
-          color: COLORS.white,
-          py: { xs: 6, sm: 7.5, md: 9 },
-          px: { xs: '24px', sm: '40px', md: '48px', lg: '64px' },
-          textAlign: 'center',
-        }}
-      >
-        <Container maxWidth="lg" disableGutters>
-          <Typography
-            variant="h1"
-            sx={{
-              color: COLORS.white,
-              fontWeight: 800,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3.25rem' },
-              lineHeight: 1.2,
-              mb: { xs: 1.5, md: 2 },
-            }}
-          >
-            About NorthNode Analytics
-          </Typography>
-          <Typography
-            variant="h6"
-            component="p"
-            sx={{
-              color: COLORS.sky,
-              fontWeight: 600,
-              fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
-              lineHeight: 1.5,
-              maxWidth: '800px',
-              mx: 'auto',
-            }}
-          >
-            Precision Engineering. Global Scale. Canadian Integrity.
-          </Typography>
-        </Container>
-      </Box>
+      <PageBanner
+        title="About NorthNode Analytics"
+        subtitle="Precision Engineering. Global Scale. Canadian Integrity."
+      />
 
       {/* 2. FULL ABOUT THE COMPANY TEXT */}
       <Box

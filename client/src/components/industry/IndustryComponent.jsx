@@ -9,9 +9,10 @@ import {
   Button,
   Paper,
   Stack,
-  Chip
+  Chip,
 } from '@mui/material';
 import { ROUTE_MAP } from '../../constants/routes';
+import PageBanner from '../common/PageBanner';
 import {
   AccountBalance as FinanceIcon,
   LocalHospital as HealthIcon,
@@ -105,45 +106,10 @@ const IndustryComponent = ({ onNavigate }) => {
   return (
     <Box sx={{ backgroundColor: COLORS.light, pb: 8 }}>
       {/* 1. HERO & INTRO */}
-      <Box
-        component="section"
-        sx={{
-          backgroundColor: COLORS.blue,
-          color: COLORS.white,
-          py: { xs: 6, sm: 7.5, md: 9 },
-          px: { xs: '24px', sm: '40px', md: '48px', lg: '64px' },
-          textAlign: 'center',
-        }}
-      >
-        <Container maxWidth="lg" disableGutters>
-          <Typography
-            variant="h1"
-            sx={{
-              color: COLORS.white,
-              fontWeight: 800,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3.25rem' },
-              lineHeight: 1.2,
-              mb: { xs: 1.5, md: 2 },
-            }}
-          >
-            Industries Served
-          </Typography>
-          <Typography
-            variant="h6"
-            component="p"
-            sx={{
-              color: COLORS.sky,
-              fontWeight: 600,
-              fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
-              lineHeight: 1.5,
-              maxWidth: '800px',
-              mx: 'auto',
-            }}
-          >
-            Our teams bring domain fluency across a broad range of sectors, allowing us to speak the language of your business from day one.
-          </Typography>
-        </Container>
-      </Box>
+      <PageBanner
+        title="Industries Served"
+        subtitle="Our teams bring domain fluency across a broad range of sectors, allowing us to speak the language of your business from day one."
+      />
 
       {/* 2. UNIFIED SECTOR EXPERIENCE & ENGAGEMENTS SECTION */}
       <Box

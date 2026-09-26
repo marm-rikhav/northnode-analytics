@@ -13,9 +13,10 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableRow
+  TableRow,
 } from '@mui/material';
 import { ROUTE_MAP } from '../../constants/routes';
+import PageBanner from '../common/PageBanner';
 import {
   Code as CodeIcon,
   Web as WebIcon,
@@ -221,45 +222,10 @@ const ServicesComponent = ({ onNavigate }) => {
   return (
     <Box sx={{ backgroundColor: COLORS.light, pb: 0 }}>
       {/* 1. HERO & INTRO */}
-      <Box
-        component="section"
-        sx={{
-          backgroundColor: COLORS.blue,
-          color: COLORS.white,
-          py: { xs: 6, sm: 7.5, md: 9 },
-          px: { xs: '24px', sm: '40px', md: '48px', lg: '64px' },
-          textAlign: 'center',
-        }}
-      >
-        <Container maxWidth="lg" disableGutters>
-          <Typography
-            variant="h1"
-            sx={{
-              color: COLORS.white,
-              fontWeight: 800,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3.25rem' },
-              lineHeight: 1.2,
-              mb: { xs: 1.5, md: 2 },
-            }}
-          >
-            IT Services & Capabilities
-          </Typography>
-          <Typography
-            variant="h6"
-            component="p"
-            sx={{
-              color: COLORS.sky,
-              fontWeight: 600,
-              fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
-              lineHeight: 1.5,
-              maxWidth: '800px',
-              mx: 'auto',
-            }}
-          >
-            NorthNode Analytics offers a full-spectrum portfolio of technology services, enabling clients to engage us for a single specialized capability or as an end-to-end digital delivery partner.
-          </Typography>
-        </Container>
-      </Box>
+      <PageBanner
+        title="IT Services & Capabilities"
+        subtitle="NorthNode Analytics offers a full-spectrum portfolio of technology services, enabling clients to engage us for a single specialized capability or as an end-to-end digital delivery partner."
+      />
 
       {/* 2. ALL 12 IT SERVICES CARDS - ENCLOSED IN WHITE OUTER COVER CARD */}
       <Box
