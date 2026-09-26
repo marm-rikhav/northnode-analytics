@@ -248,18 +248,6 @@ const IndustryComponent = ({ onNavigate }) => {
                       >
                         {cloneElement(item.icon, { sx: { fontSize: 24, color: 'inherit' } })}
                       </Box>
-                      <Chip
-                        label={item.num}
-                        size="small"
-                        sx={{
-                          backgroundColor: '#F2F5F9',
-                          color: '#1E4D8C',
-                          fontWeight: 700,
-                          fontSize: '0.78rem',
-                          borderRadius: '8px',
-                          border: '1px solid #D9E3EF',
-                        }}
-                      />
                     </Stack>
 
                     {/* Industry Title */}
