@@ -115,7 +115,7 @@ const FooterComponent = ({ onNavigate }) => {
                   maxWidth: 320,
                 }}
               >
-                Engineering Intelligent Digital Solutions
+                NorthNode Analytics
               </Typography>
 
               <Typography
