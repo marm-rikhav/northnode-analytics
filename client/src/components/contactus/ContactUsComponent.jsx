@@ -232,7 +232,7 @@ const ContactUsComponent = () => {
                         alignItems: 'center',
                         py: { xs: '12px', sm: '13px' },
                         px: { xs: '14px', sm: '18px' },
-                        borderBottom: index !== contactItems.length - 1 ? '1px solid #E8EEF5' : 'none',
+                        borderBottom: index === contactItems.length - 1 ? 'none' : '1px solid #E8EEF5',
                         gap: { xs: 1.5, sm: 2 },
                         transition: 'background-color 0.15s ease',
                         '&:hover': {

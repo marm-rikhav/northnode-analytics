@@ -567,7 +567,7 @@ const ServicesComponent = ({ onNavigate }) => {
                       flexDirection: { xs: 'column', sm: 'row' },
                       alignItems: { xs: 'flex-start', sm: 'center' },
                       backgroundColor: idx % 2 === 0 ? '#FFFFFF' : '#F2F5F9',
-                      borderBottom: idx !== techStack.length - 1 ? '1px solid #D6E3F0' : 'none',
+                      borderBottom: idx === techStack.length - 1 ? 'none' : '1px solid #D6E3F0',
                       flex: 1,
                     }}
                   >
