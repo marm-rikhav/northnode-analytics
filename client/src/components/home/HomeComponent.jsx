@@ -650,7 +650,7 @@ const HomeComponent = ({ onNavigate }) => {
         sx={{
           position: 'relative',
           pt: { xs: 3.5, md: 4.5 },
-          pb: { xs: 7, md: 9 },
+          pb: { xs: 3.5, md: 4.5 },
           px: { xs: 2, sm: 3, md: 4, lg: 6 },
           backgroundColor: '#FFFFFF',
         }}
@@ -911,6 +911,7 @@ const HomeComponent = ({ onNavigate }) => {
         component="section"
         sx={{
           position: 'relative',
+          pt: { xs: 3.5, md: 4.5 },
           pb: { xs: 3.5, md: 4.5 },
           px: { xs: 2, sm: 3, md: 4, lg: 6 },
           backgroundColor: '#FFFFFF',
