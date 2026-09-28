@@ -115,7 +115,7 @@ const whyChooseBenefits = [
 
 const teamMembers = [
   {
-    name: 'Jainam Sarvaiya',
+    name: 'Priti Jamariya',
     designation: 'CEO & Founder',
   },
   {
